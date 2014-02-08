@@ -1,0 +1,22 @@
+<% provide(:title, '国家') %>
+
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1>国家列表</h1>
+		</section>
+		<section>
+			<%= render 'country_form' %>
+		</section>
+	</aside>
+
+
+
+	<div class="span8">
+		<ol class="microposts">
+	  		<%= render @countries %>
+		</ol>
+		<%= will_paginate %>
+	</div>
+
+</div>

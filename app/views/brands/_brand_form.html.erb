@@ -1,0 +1,10 @@
+<%= form_for Brand.new do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  创建一个新的品牌
+  <div class="field">
+    <%= f.text_area :brand_english, placeholder: "品牌英文名..." %>
+    <%= f.text_area :brand_chinese, placeholder: "品牌中文名..." %>
+    <%= f.select :country_id, @countries, placeholder: "品牌所属国家..." %>
+  </div>
+  <%= f.submit "提交", class: "btn btn-large btn-primary" %>
+<% end %>

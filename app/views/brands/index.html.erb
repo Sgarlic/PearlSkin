@@ -1,0 +1,22 @@
+<% provide(:title, '品牌') %>
+
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1>品牌列表</h1>
+		</section>
+		<section>
+			<%= render 'brand_form' %>
+		</section>
+	</aside>
+
+
+
+	<div class="span8">
+		<ol class="microposts">
+	  		<%= render @brands %>
+		</ol>
+		<%= will_paginate %>
+	</div>
+
+</div>

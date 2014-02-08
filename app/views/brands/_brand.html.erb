@@ -1,0 +1,15 @@
+<li>
+	<span class = "content">
+		<%= form_for(brand) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			<%= f.text_field :brand_english %>
+			<%= f.text_field :brand_chinese %>
+			<%= f.select :country_id, @countries %>
+			<%= f.submit "保存" %>
+		<% end %>
+	</span>
+
+	<%= link_to "删除", brand,  method: :delete,
+									data: { confirm: "确定删除？"},
+									title: brand.brand_english %>
+</li>
