@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140208083537) do
+ActiveRecord::Schema.define(version: 20140209135144) do
 
   create_table "brands", force: true do |t|
     t.string   "brand_chinese"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20140208083537) do
   add_index "brands", ["brand_chinese"], name: "index_brands_on_brand_chinese", unique: true
   add_index "brands", ["brand_english"], name: "index_brands_on_brand_english", unique: true
 
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "step"
+  end
+
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true
+  add_index "categories", ["step"], name: "index_categories_on_step", unique: true
+
   create_table "countries", force: true do |t|
     t.string   "country_name"
     t.datetime "created_at"
@@ -32,5 +42,30 @@ ActiveRecord::Schema.define(version: 20140208083537) do
   end
 
   add_index "countries", ["country_name"], name: "index_countries_on_country_name"
+
+  create_table "items", force: true do |t|
+    t.string   "item_english"
+    t.string   "item_chinese"
+    t.integer  "brand_id"
+    t.integer  "subcategory_id"
+    t.string   "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_id"
+  end
+
+  add_index "items", ["item_chinese"], name: "index_items_on_item_chinese", unique: true
+  add_index "items", ["item_english"], name: "index_items_on_item_english", unique: true
+
+  create_table "subcategories", force: true do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "step"
+  end
+
+  add_index "subcategories", ["name", "category_id"], name: "index_subcategories_on_name_and_category_id", unique: true
+  add_index "subcategories", ["step"], name: "index_subcategories_on_step", unique: true
 
 end

@@ -4,6 +4,7 @@
       <%= link_to "PearlSkin", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
+          <li><%= link_to "添加物品", new_item_path %></li>
           <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               设置 <b class="caret"></b>
@@ -13,7 +14,7 @@
               <li class="divider"></li>
               <li><%= link_to "品牌", brands_path %></li>
               <li class="divider"></li>
-              <li><%= link_to "类别", '#' %></li>
+              <li><%= link_to "类别", categories_path %></li>
             </ul>
           </li>
       </nav>

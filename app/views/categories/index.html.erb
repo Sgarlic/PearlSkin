@@ -1,0 +1,22 @@
+<% provide(:title, '类别') %>
+
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1>类别列表</h1>
+		</section>
+		<section>
+			<%= render 'category_form' %>
+		</section>
+	</aside>
+
+
+
+	<div class="span8">
+		<ol class="microposts">
+	  		<%= render @categories %>
+		</ol>
+		<%= will_paginate %>
+	</div>
+
+</div>

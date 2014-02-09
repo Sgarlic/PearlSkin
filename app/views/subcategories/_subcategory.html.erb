@@ -1,0 +1,14 @@
+<li>
+	<span class = "content">
+		<%= form_for(subcategory) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			<%= f.text_field :name %>
+			<%= f.text_area :step, placeholder: "步骤..."  %>
+			<%= f.submit "保存" %>
+		<% end %>
+	</span>
+
+	<%= link_to "删除", subcategory,  method: :delete,
+									data: { confirm: "确定删除？"},
+									title: subcategory.name %>
+</li>

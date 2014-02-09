@@ -1,0 +1,49 @@
+<% provide(:title, '新物品') %>
+
+<script type="text/javascript">
+  var subcategories = new Array();
+
+  <% for subcategory in @subcategories %>
+  	subcategories.push(new Array(<%= subcategory.category_id %>, '<%=h subcategory.name %>', <%= subcategory.id %>));
+  <% end %>
+//alert($('item_category_id').getValue());
+  function categorySelected() {
+    var category_id = $('#item_category_id').val();
+    //alert(category_id);
+  	//options = $('#item_subcategory_id').options;
+  	//options.length = 1;
+  	$("#item_subcategory_id").empty();
+  	for(i=0; i<subcategories.length; i++){
+  		subcategory = subcategories[i];
+  		//alert(subcategory);
+  		//alert(subcategory[0] +"   " + category_id);
+  	    if (subcategory[0] == category_id) {
+  	    	//alert("haha " + subcategory[1]);
+        	$("#item_subcategory_id").append("<option value='"+subcategory[2]+"'>"+subcategory[1]+"</option>");
+      	}
+  	}
+  }
+
+  $(document).ready(function(){
+  	//alert("1");
+    categorySelected();
+    $('#item_category_id').change(categorySelected);
+  });
+</script>
+
+<%= form_for @item do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  创建一个新的物品
+  <div class="field">
+  	<%= f.select :brand_id, @brands, :prompt => "品牌" %>
+  	<label for="item_category_id">Country:</label>
+  	<%= f.collection_select :category_id, Category.find(:all), :id, :name, :prompt => "类别" %>
+  	<p id="subcategory_field">
+  		<label for="item_subcategory_id">State or Province:</label>
+  		<%= f.collection_select :subcategory_id, Subcategory.find(:all), :id, :name, :promot => "子类别" %>
+  	</p>
+    <%= f.text_area :item_english, placeholder: "物品英文名..." %>
+    <%= f.text_area :item_chinese, placeholder: "物品中文名..." %>
+  </div>
+  <%= f.submit "提交", class: "btn btn-large btn-primary" %>
+<% end %>
