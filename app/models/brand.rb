@@ -7,7 +7,12 @@ class Brand < ActiveRecord::Base
 	validates :brand_english, presence: true, length: {maximum: 140}, uniqueness: true
 	validates :country_id, presence: true
 
+
+	def brand_name
+		self.brand_english+"-"+self.brand_chinese
+	end
+
 	def self.find_brands
-		Brand.find(:all, :order => "brand_english").collect{|brand| [brand.brand_english, brand.id]}
+		Brand.find(:all, :order => "brand_english").collect{|brand| [brand.brand_name, brand.id]}
 	end
 end

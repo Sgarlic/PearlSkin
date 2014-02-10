@@ -4,9 +4,12 @@ PearlSkin::Application.routes.draw do
   resources :categories
   resources :subcategories
   resources :items
+  resources :comments
 
   root to: 'static_pages#home'
-  
+
+  match '/all_brands', to: 'brands#all_brands', via: 'get'
+  match '/delete_picture', to: 'items#delete_picture', via:'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

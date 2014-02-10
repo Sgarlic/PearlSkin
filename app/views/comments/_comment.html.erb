@@ -1,0 +1,9 @@
+<li>
+	<span class = "content">
+		<%= comment.author %>:
+		<%= comment.content %>
+	</span>
+
+	<%= link_to "删除", comment,  method: :delete,
+									data: { confirm: "确定删除？"} %>
+</li>

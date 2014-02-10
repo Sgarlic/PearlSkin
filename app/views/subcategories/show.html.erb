@@ -1,0 +1,20 @@
+<% provide(:title, @subcategory.subcategory_name) %>
+
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1><%= @subcategory.subcategory_name %></h1>
+		</section>
+	</aside>
+
+	<div class="span8">
+		<% @subcategories_items = Item.where("subcategory_id=#{@subcategory.id}").paginate(page: params[:page]).per_page(10) %>
+		<ol class="microposts">
+			<% @subcategories_items.each do |item| %>
+				<%= render 'shared/single_item' , object: item %>
+	  		<% end %>
+		</ol>
+		<%= will_paginate @subcategories_items%>
+	</div>
+
+</div>

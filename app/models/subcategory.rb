@@ -11,4 +11,8 @@ class Subcategory < ActiveRecord::Base
 	def self.find_subcategories
 		Subcategory.find(:all, :order => "name").collect{|subcategory| [subcategory.name, subcategory.id]}
 	end
+
+	def subcategory_name
+		Category.find(self.category_id).name+"-"+self.name
+	end
 end

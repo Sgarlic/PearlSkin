@@ -4,6 +4,10 @@ class SubcategoriesController <ApplicationController
 		@subcategories = @category.subcategories.paginate(page: params[:page]).per_page(10)
 	end
 
+	def show
+		@subcategory =  Subcategory.find(params[:id])
+	end
+
 	def create
 		@category = Category.find(params[:category_id])
 		@subcategory = @category.subcategories.build(subcategory_params)

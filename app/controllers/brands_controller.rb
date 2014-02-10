@@ -4,6 +4,11 @@ class BrandsController <ApplicationController
 		@brands = Brand.paginate(page: params[:page]).per_page(10)
 	end
 
+
+	def all_brands
+		@all_of_brands = Brand.paginate(page: params[:page]).per_page(10)
+	end
+
 	def create
 		@brand = Brand.new(brand_params)
 		begin
@@ -38,6 +43,10 @@ class BrandsController <ApplicationController
 			flash[:failed] = "该品牌已存在！"
 		end	
 		redirect_to brands_path
+	end
+
+	def show
+		@brand = Brand.find(params[:id])
 	end
 
 	private

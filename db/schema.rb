@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140209135144) do
+ActiveRecord::Schema.define(version: 20140210022927) do
 
   create_table "brands", force: true do |t|
     t.string   "brand_chinese"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 20140209135144) do
 
   add_index "categories", ["name"], name: "index_categories_on_name", unique: true
   add_index "categories", ["step"], name: "index_categories_on_step", unique: true
+
+  create_table "comments", force: true do |t|
+    t.integer  "item_id"
+    t.string   "content"
+    t.string   "author"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "countries", force: true do |t|
     t.string   "country_name"

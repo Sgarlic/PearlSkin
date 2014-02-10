@@ -1,0 +1,43 @@
+<% provide(:title, @item.item_english) %>
+
+<%= Category.find(@item.category_id).name %> 
+->
+<%= link_to Subcategory.find(@item.subcategory_id).name, subcategory_path(@item.subcategory_id) %>
+
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1>
+				<%= @item.item_english %>
+				<%= @item.item_chinese %>
+				<% brand=Brand.find(@item.brand_id) %>
+				<%= link_to brand.brand_name, brand_path(@item.brand_id) %>
+				<% subcategory=Subcategory.find(@item.subcategory_id) %>
+				<% category = Category.find(subcategory.category_id) %>
+				<%= category.name %>
+				<%= subcategory.name %>
+			</h1>
+			<% if(!@pictures.nil?) %>
+				<% @pictures.each do |picture| %>
+					<% if File.basename(picture) != @item.id.to_s() %>
+						<%= image_tag(@item.id.to_s()+"/"+File.basename(picture), :size => "38*27") %>
+					<% end %>
+				<% end %>
+			<% end %>
+		</section>
+		<%=link_to "编辑物品", edit_item_path %>
+		<%=link_to "删除物品", @item,  method: :delete,
+									data: { confirm: "确定删除？"} %>
+	</aside>
+
+	<div class="span8">
+		<%= render 'comment_form' %>
+		<% if @item.comments.any? %>
+			<h3>Comments (<%= @item.comments.count %>)</h3>
+      		<ol class="microposts">
+        		<%= render @comments %>
+     		</ol>
+      		<%= will_paginate @comments %>
+    	<% end %>
+    </div>
+</div>

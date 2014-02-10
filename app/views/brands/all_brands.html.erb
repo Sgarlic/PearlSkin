@@ -1,0 +1,24 @@
+<% provide(:title, '品牌列表') %>
+
+<div class="row">
+	<aside class="span4">
+		<section>
+			<h1>品牌列表</h1>
+		</section>
+	</aside>
+
+
+
+	<div class="span8">
+		<ol class="microposts">
+			<% @all_of_brands.each do |brand| %>
+				<li>
+					<% brand_name = brand.brand_english+"-"+brand.brand_chinese %>
+					<%= link_to brand_name, brand_path(brand.id) %>
+				</li>
+	  		<% end %>
+		</ol>
+		<%= will_paginate @all_of_brands%>
+	</div>
+
+</div>
