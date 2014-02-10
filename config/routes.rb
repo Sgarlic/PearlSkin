@@ -6,7 +6,7 @@ PearlSkin::Application.routes.draw do
   resources :items
   resources :comments
 
-  root to: 'static_pages#home'
+  root to: 'brands#all_brands'
 
   match '/all_brands', to: 'brands#all_brands', via: 'get'
   match '/delete_picture', to: 'items#delete_picture', via:'get'

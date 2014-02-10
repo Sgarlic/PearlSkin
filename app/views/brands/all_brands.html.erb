@@ -1,24 +1,39 @@
 <% provide(:title, '品牌列表') %>
 
-<div class="row">
-	<aside class="span4">
-		<section>
-			<h1>品牌列表</h1>
-		</section>
-	</aside>
-
-
-
-	<div class="span8">
-		<ol class="microposts">
-			<% @all_of_brands.each do |brand| %>
-				<li>
-					<% brand_name = brand.brand_english+"-"+brand.brand_chinese %>
-					<%= link_to brand_name, brand_path(brand.id) %>
-				</li>
-	  		<% end %>
-		</ol>
-		<%= will_paginate @all_of_brands%>
-	</div>
-
+<div class="BrandStoreRightNav">
+ 	<div id="sub">品牌列表</div>
+		<table class="brandTable">
+			<tbody>
+				<% alphArray = ('A'..'Z').to_a %>
+				<% value = 0 %>
+				<% while value< 26 do %>
+					<% for addValue in 0..3 %>
+						<tr>
+							<td class="BoutiqueArray">
+								<div class="divAlpha">
+									<%= alphArray[value+addValue] %>
+								</div>
+							</td>
+						</tr>
+					<% end %>
+					<% for addValue in 0..3 %>
+						<tr>
+							<td class="BoutiqueArrayID">
+								<% alph_brand=alphArray[value+addValue] %>
+								<% Brand.where("brand_english LIKE '#{alph_brand}%'").each do |brand| %>
+									<div class="divBrandName">
+										<span class="newProd"></span>
+										<span class="brandText">
+											<%= link_to brand.brand_name, brand_path(brand.id) %>
+										</span>
+									</div>
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+					<% value+=4 %>
+					</br>
+				<% end %>
+			</tbody>
+		</table>
 </div>
