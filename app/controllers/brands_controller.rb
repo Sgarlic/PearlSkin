@@ -1,4 +1,6 @@
 class BrandsController <ApplicationController
+	before_action :signed_in_user, only: [:all_brands, :show]
+  	before_action :admin_user,     only: [:create, :destroy, :update, :index]
 	def index
 		@countries = Country.find_countries
 		@brands = Brand.paginate(page: params[:page]).per_page(10)

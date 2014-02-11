@@ -1,4 +1,6 @@
 class CountriesController <ApplicationController
+	before_action :signed_in_user
+  	before_action :admin_user,     only: [:index, :create, :destroy, :update]
 	def index
 		@countries = Country.paginate(page: params[:page]).per_page(10)
 	end

@@ -30,11 +30,13 @@
 				<% end %>
 			<% end %>
 		</section>
-		<span class="item_edit_delete">
-			<%=link_to "编辑物品", edit_item_path %>
-			<%=link_to "删除物品", @item,  method: :delete,
-										data: { confirm: "确定删除？"} %>
-		</span>
+		<% if current_user.admin? %>
+			<span class="item_edit_delete">
+				<%=link_to "编辑物品", edit_item_path %>
+				<%=link_to "删除物品", @item,  method: :delete,
+											data: { confirm: "确定删除？"} %>
+			</span>
+		<% end %>
 
 		<section>
 			<% if @item.item_addrs.any? %>
@@ -45,10 +47,12 @@
       			<%= will_paginate @comments %>
     		<% end %>
 		</section>
-		<section>
-			<h3>添加链接</h3>
-			<%= render 'item_addr_form' %>
-		</section>
+		<% if current_user.admin? %>
+			<section>
+				<h3>添加链接</h3>
+				<%= render 'item_addr_form' %>
+			</section>
+		<% end %>
 	</aside>
 
 	<div class="span8">

@@ -1,3 +1,4 @@
+require 'find'
 class Item < ActiveRecord::Base
 	belongs_to :brand
 	belongs_to :subcategory

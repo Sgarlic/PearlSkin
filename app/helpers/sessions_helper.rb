@@ -38,4 +38,27 @@ module SessionsHelper
   def store_location
     session[:return_to] = request.fullpath if request.get?
   end
+
+  def signed_in_user
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "请登录！"
+    end
+  end
+
+  def admin_user
+    unless signed_in?
+      store_location
+      redirect_to signin_url, notice: "请登录！"
+      return
+    end
+    redirect_to user_path(current_user.id), notice: "非管理员用户！" unless current_user.admin?
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user?(@user)
+  end
+
+
 end

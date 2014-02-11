@@ -1,4 +1,6 @@
 class SubcategoriesController <ApplicationController
+	before_action :signed_in_user, only: [:show]
+  	before_action :admin_user,     only: [:index, :carete, :destroy, :update]
 	def index
 		#@category = Category.find(params[:id])
 		@subcategories = @category.subcategories.paginate(page: params[:page]).per_page(10)

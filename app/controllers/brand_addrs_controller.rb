@@ -1,4 +1,6 @@
 class BrandAddrsController <ApplicationController
+	before_action :signed_in_user, only: [:index]
+    before_action :admin_user,     only: [:create, :destroy]
 	def index
 		#@category = Category.find(params[:id])
 		@brand_addrs = @brand.brand_addrs.paginate(page: params[:page]).per_page(10)

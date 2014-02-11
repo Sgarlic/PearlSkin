@@ -17,9 +17,11 @@
       			<%= will_paginate @brand_addrs %>
     		<% end %>
 		</section>
-		<section>
-			<%= render 'brand_addr_form' %>
-		</section>
+		<% if current_user.admin? %>
+			<section>
+				<%= render 'brand_addr_form' %>
+			</section>
+		<% end %>
 	</aside>
 
 	<div class="span8">

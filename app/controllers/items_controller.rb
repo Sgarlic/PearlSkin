@@ -1,5 +1,7 @@
 require 'find'
 class ItemsController <ApplicationController
+	before_action :signed_in_user, only: [:show]
+  	before_action :admin_user,     only: [:new, :edit, :update, :create, :destroy, :delete_picture]
 	def new
 		@item = Item.new
 		@brands = Brand.find_brands
