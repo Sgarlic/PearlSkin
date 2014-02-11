@@ -1,0 +1,8 @@
+<li>
+	<span class = "link_addr">
+		<span class="link_addr_description"><%= brand_addr.description %>:</span>
+		<span class="link_addr_link"><%= link_to brand_addr.link_addr, brand_addr.link_addr %></span>
+		<span class="link_addr_delete"><%= link_to "删除链接", brand_addr,  method: :delete,
+				data: { confirm: "确定删除？"} %></span>
+	</span>
+</li>

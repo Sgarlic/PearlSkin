@@ -1,8 +1,16 @@
 <%= form_for Category.new do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
+  <div class="category_form">
   <div class="field">
-    <%= f.text_area :name, placeholder: "添加新的类别..." %>
-    <%= f.text_area :step, placeholder: "步骤..."  %>
+  	<tr>
+  		<td>
+		    <%= f.text_area :name, placeholder: "新的类别..."%>
+		</td>
+		<td>
+		    <%= f.text_area :step, placeholder: "步骤..."  %>
+		</td>
+	</tr>
   </div>
-  <%= f.submit "提交", class: "btn btn-large btn-primary" %>
+  </div>
+  <%= f.submit "提交", class: "btn btn-primary" %>
 <% end %>

@@ -47,6 +47,7 @@ class BrandsController <ApplicationController
 
 	def show
 		@brand = Brand.find(params[:id])
+		@brand_addrs = @brand.brand_addrs.paginate(page: params[:page]).per_page(10)
 	end
 
 	private

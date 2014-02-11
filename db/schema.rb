@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140210022927) do
+ActiveRecord::Schema.define(version: 20140211093104) do
+
+  create_table "brand_addrs", force: true do |t|
+    t.string   "link_addr"
+    t.string   "description"
+    t.integer  "brand_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "brands", force: true do |t|
     t.string   "brand_chinese"
@@ -51,6 +59,14 @@ ActiveRecord::Schema.define(version: 20140210022927) do
 
   add_index "countries", ["country_name"], name: "index_countries_on_country_name"
 
+  create_table "item_addrs", force: true do |t|
+    t.string   "link_addr"
+    t.string   "description"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "items", force: true do |t|
     t.string   "item_english"
     t.string   "item_chinese"
@@ -60,6 +76,7 @@ ActiveRecord::Schema.define(version: 20140210022927) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.string   "character"
   end
 
   add_index "items", ["item_chinese"], name: "index_items_on_item_chinese", unique: true
@@ -75,5 +92,18 @@ ActiveRecord::Schema.define(version: 20140210022927) do
 
   add_index "subcategories", ["name", "category_id"], name: "index_subcategories_on_name_and_category_id", unique: true
   add_index "subcategories", ["step"], name: "index_subcategories_on_step", unique: true
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.boolean  "admin"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

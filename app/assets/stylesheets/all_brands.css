@@ -1,0 +1,105 @@
+﻿.BrandStoreRightNav
+{
+	width: 815px;
+	float: left;
+	background-color: #FFFFFF;
+}
+
+.BrandStoreRightNav #sub
+{
+	font-family: Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+	font-size: 2.2em;
+	padding-bottom: 25px;
+	padding-left: 20px;
+	padding-top: 25px;
+	text-transform: uppercase;
+	margin-left: 25px;
+	line-height: 1;
+	font-weight: bold;
+}
+
+.BrandStoreRightNav .seperator
+{
+	padding: 25px;
+}
+
+
+.BrandStoreRightNav .brandTable
+{
+	margin-left: 25px;
+}
+
+.BrandStoreRightNav .brandTable .brandText
+	{
+		font-family: Times New Roman;
+		font-size: 1.076em;
+		color: #444444;
+	}
+
+	.BrandStoreRightNav .brandTable .newProd
+	{
+		font-family: Arial;
+		font-size: 10px;
+		color: #b07ec3;
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
+.BrandStoreRightNav #spacer
+{
+	padding-top: 25px;
+}
+
+
+.BoutiqueArray
+{
+	width: 187px;
+	padding-left: 20px;
+}
+
+
+.BoutiqueArrayTd
+{
+	vertical-align: top;
+	padding-left: 20px;
+}
+
+.divAlpha
+{
+	float: left;
+	width: 100px;
+	color: #444444;
+	font-family: Arial Black;
+	font-size: 3.3em;
+	line-height: 44px;
+}
+
+.divBrandName
+{
+	padding-right: 0;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	width: 75%;
+	margin-right: 1px;
+	padding-top: 13px;
+}
+
+	.divBrandName a:hover
+	{
+		color: Black !important;
+		text-decoration: underline;
+	}
+
+
+.newProd
+{
+	width: 20px;
+	padding-right: 2px;
+}
+.seperator hr
+{
+	margin: 16px 0;
+}
+
+

@@ -1,3 +1,16 @@
 <li>
+	<% pictures = Item.find_pictures(object) %>
+	<% if(!pictures.nil?) %>
+		<% pictures.each do |picture| %>
+			<% if File.basename(picture) != object.id.to_s() %>
+				<%= image_tag(object.id.to_s()+"/"+File.basename(picture), :size => "220*220") %>
+				<% break %>
+			<% end %>
+		<% end %>
+	<% end %>
+	<% brand = Brand.find(object.brand_id) %>
+	<%= link_to brand.brand_name, brand_path(brand.id) %>
 	<%= link_to object.item_name, item_path(object.id) %>
+	性质：<%= object.character %>
 </li>
+

@@ -1,10 +1,18 @@
 <%= form_for Subcategory.new do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  添加子类别
-  <div class="field">
-    <%= f.text_area :name, placeholder: "子类别名字..." %>
-    <%= f.text_area :step, placeholder: "步骤..."  %>
-    <%= hidden_field_tag 'category_id', @category.id  %>
+  <h5>添加子类别:</h5>
+  <div class="category_form">
+	  <div class="field">
+	  	<td>
+	  		<tr>
+	    		<%= f.text_area :name, placeholder: "子类别名字..." %>
+	    	</tr>
+	    	<tr>
+	    		<%= f.text_area :step, placeholder: "步骤..."  %>
+	    	</tr>
+	    	<%= hidden_field_tag 'category_id', @category.id  %>
+		</td>
+	  </div>
   </div>
-  <%= f.submit "提交", class: "btn btn-large btn-primary" %>
+  <%= f.submit "提交", class: "btn btn-primary" %>
 <% end %>

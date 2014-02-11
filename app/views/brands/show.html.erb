@@ -3,7 +3,22 @@
 <div class="row">
 	<aside class="span4">
 		<section>
-			<h1><%= @brand.brand_name %></h1>
+			<span class="item_brand">
+				<%= @brand.brand_name %>
+			</span>
+			<h5>品牌所属：<%= Country.find(@brand.country_id).country_name %></h5>
+		</section>
+		<section>
+			<% if @brand.brand_addrs.any? %>
+				<span class="item_brand">品牌链接 (<%= @brand.brand_addrs.count %>)</span>
+      			<ol class="microposts">
+        			<%= render @brand_addrs %>
+     			</ol>
+      			<%= will_paginate @brand_addrs %>
+    		<% end %>
+		</section>
+		<section>
+			<%= render 'brand_addr_form' %>
 		</section>
 	</aside>
 

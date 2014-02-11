@@ -1,9 +1,15 @@
-<%= form_for Comment.new do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "添加新的评论..." %>
-    <%= f.text_area :author, placeholder: "作者..."  %>
-    <%= hidden_field_tag 'item_id', @item.id  %>
-  </div>
-  <%= f.submit "提交", class: "btn btn-large btn-primary" %>
-<% end %>
+<div class="new_comment_form">
+	<%= form_for Comment.new do |f| %>
+	  <%= render 'shared/error_messages', object: f.object %>
+	  <div class="field">
+	  	<div class="new_comment_content">
+	    	<%= f.text_area :content, placeholder: "添加新的评论..." %>
+	    </div>
+	    <div class="new_comment_author">
+	    	<%= f.text_area :author, placeholder: "作者..."  %>
+	    </div>
+	    <%= hidden_field_tag 'item_id', @item.id  %>
+	  </div>
+	  <%= f.submit "提交", class: "btn btn-primary" %>
+	<% end %>
+</div>

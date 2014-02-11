@@ -7,18 +7,19 @@
 				<% alphArray = ('A'..'Z').to_a %>
 				<% value = 0 %>
 				<% while value< 26 do %>
-					<% for addValue in 0..3 %>
-						<tr>
+					<tr>
+						<% for addValue in 0..3 %>
 							<td class="BoutiqueArray">
-								<div class="divAlpha">
-									<%= alphArray[value+addValue] %>
-								</div>
+								<div class="divAlpha"><%= alphArray[value+addValue] %></div>
 							</td>
-						</tr>
-					<% end %>
-					<% for addValue in 0..3 %>
-						<tr>
-							<td class="BoutiqueArrayID">
+						<% end %>
+					</tr>
+					<tr>
+						<% for addValue in 0..3 %>
+							<td class="BoutiqueArrayTd">
+								<% if (value+addValue)==26 %>
+									<% break %>
+								<% end %>
 								<% alph_brand=alphArray[value+addValue] %>
 								<% Brand.where("brand_english LIKE '#{alph_brand}%'").each do |brand| %>
 									<div class="divBrandName">
@@ -29,11 +30,14 @@
 									</div>
 								<% end %>
 							</td>
-						</tr>
-					<% end %>
+						<% end %>
+					</tr>
 					<% value+=4 %>
-					</br>
+					<tr>
+						<td class="seperator" colspan="6"><hr></td>
+					</tr>
 				<% end %>
 			</tbody>
 		</table>
+	</div>
 </div>

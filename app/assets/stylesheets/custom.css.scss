@@ -50,6 +50,22 @@ h2 {
   font-weight: normal;
   color: $grayLight;
 }
+h4 {
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+  font-size: 1.1em;
+  padding-bottom: 3px;
+  line-height: 1;
+  font-weight: bold;   
+}
+
+h5 {
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+  font-size: 0.9em;
+  padding-bottom: 3px;
+  padding-top: 5px;
+  line-height: 1;
+  font-weight: bold;   
+}
 
 p {
   font-size: 1.1em;
@@ -73,6 +89,10 @@ p {
     color: white;
     text-decoration: none;
   }
+}
+
+.container{
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
 }
 
 /* footer */
@@ -112,16 +132,6 @@ $grayMediumLight: #eaeaea;
 }
 
 
-/* miscellaneous */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
-
 /* sidebar */
 
 aside {
@@ -145,7 +155,29 @@ aside {
       margin-top: 0px;
     }
   }
+
 }
+
+  .item_other_section {
+    padding: 1px 0;
+    border-top: 1px solid $grayLighter;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
 
 .gravatar {
   float: left;
@@ -179,6 +211,190 @@ aside {
   .gravatar {
     margin: 1px 1px;
   }
+}
+
+/* items_show */
+
+.item_brand{
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+  font-size: 1.4em;
+  padding-bottom: 3px;
+  padding-top: 5px;
+  line-height: 1;
+  font-weight: bold; 
+}
+
+
+.item_name{
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+  font-size: 1.2em;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  line-height: 1;
+  font-weight: bold;  
+}
+
+.item_edit_delete{
+
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+  font-size: 0.9em;
+  padding-bottom: 11px;
+  padding-top: 2px;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.new_and_edit_item_form{
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+}
+
+.new_and_edit_item_form select{
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+}
+
+.new_and_edit_item_form textarea{
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+  height: 30px;
+}
+
+.new_and_edit_item_form p{
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+}
+
+/* country */
+.add_country_form textarea{
+  border: 1px solid #bbb;
+  width: 50%;
+  height: 30px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+.add_country_form input{
+  border: 1px solid #bbb;
+  width: 110px;
+  height: 30px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+.add_brand_form textarea{
+  border: 1px solid #bbb;
+  width: 87%;
+  height: 30px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+.add_brand_form input{
+  border: 1px solid #bbb;
+  width: 200px;
+  height: 30px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+.add_brand_form select{
+  border: 1px solid #bbb;
+  width: 100px;
+  height: 30px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+.category_form textarea{
+  border: 1px solid #bbb;
+  width: 100px;
+  height: 30px;
+  margin-bottom: 15px;
+  margin-right:4px;
+  @include box_sizing;
+}
+
+.category_form input{
+  border: 1px solid #bbb;
+  width: 100px;
+  height: 30px;
+  margin-bottom: 15px;
+  margin-right:4px;
+  @include box_sizing;
+}
+
+/* brands_show */
+.add_link_form input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 10px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+.add_link_form input {
+  height: 30px;
+}
+
+.add_link_form textarea {
+  height: 30px;
+}
+
+.link_addr {
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+  font-size: 1.3em;
+  padding-bottom: 11px;
+  padding-top: 2px;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.link_addr .link_addr_description{
+  font-size: 1.1em;
+  font-family: inhert;
+}
+
+.link_addr .link_addr_link{
+  font-size: 0.9em;
+  font-family: inhert;
+  padding-bottom: 2px;
+}
+
+.link_addr .link_addr_delete{
+  font-size: 0.8em;
+  font-family: inhert;
+  padding-top: 2px;
+}
+
+
+/* comments */
+.new_comment_content textarea{
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+  height: 87px;
+}
+
+.new_comment_author textarea{
+  border: 1px solid #bbb;
+  width: 13%;
+  margin-bottom: 15px;
+  @include box_sizing;
+  height: 30px;
+}
+
+.all_comments_author{
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+  font-size: 1.2em;
+  padding-bottom: 11px;
+  padding-top: 2px;
+  line-height: 1;
+  color: #0078b6;
+}
+
+.all_comments_content{
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+  font-size: 1.0em;
+  padding-bottom: 11px;
+  padding-top: 2px;
+  line-height: 1.5;
 }
 
 /* forms */
@@ -236,6 +452,8 @@ input {
 .content {
   display: block;
 }
+
+
 .timestamp {
   color: $grayLight;
 }
@@ -248,100 +466,5 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
-}
-
-/* brands */
-.BoutiqueArray
-{
-  width: 176px;
-  padding-left: 20px;
-}
-
-.BoutiqueHR
-{
-  border: none;
-  border-top: dotted 1px black;
-  vertical-align: top;
-}
-
-.BoutiqueArrayTd
-{
-  vertical-align: top;
-  padding-left: 20px;
-}
-
-.divBrandName
-{
-  padding-right: 0;
-  display: inline-block;
-  *display: inline;
-  zoom: 1;
-  width: 75%;
-  margin-right: 1px;
-  padding-top: 13px;
-}
-
-  .divBrandName a:hover
-  {
-    color: Black !important;
-    text-decoration: underline;
-  }
-
-.divNewProd
-{
-  float: left;
-  width: 30px;
-}
-
-.BrandStoreRightNav #sub
-{
-  font-family: Arial;
-  font-size: 2.2em;
-  padding-bottom: 25px;
-  padding-left: 20px;
-  padding-top: 25px;
-  text-transform: uppercase;
-  margin-left: 25px;
-}
-
-.BrandStoreRightNav .seperator
-{
-  padding: 25px;
-}
-
-.BrandStoreRightNav .brandTable
-{
-  margin-left: 25px;
-}
-
-  .BrandStoreRightNav .brandTable .brandText
-  {
-    font-family: Times New Roman;
-    font-size: 1.076em;
-    color: #444444;
-  }
-
-  .BrandStoreRightNav .brandTable .newProd
-  {
-    font-family: Arial;
-    font-size: 10px;
-    color: #b07ec3;
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-
-.BrandStoreRightNav #spacer
-{
-  padding-top: 25px;
-}
-
-.divAlpha
-{
-  float: left;
-  width: 100px;
-  color: #444444;
-  font-family: Arial Black;
-  font-size: 3.3em;
-  line-height: 44px;
 }
 

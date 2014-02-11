@@ -47,7 +47,7 @@
         <% @pictures.each do |picture| %>
           <% if File.basename(picture) != @item.id.to_s() %>
             <%= image_tag(@item.id.to_s()+"/"+File.basename(picture), :size => "38*27") %>
-            <%= link_to "Delete", "/delete_picture?pictureName=#{File.basename(picture)}&itemID=#{@item.id}" %>
+            <%= link_to "删除", "/delete_picture?pictureName=#{File.basename(picture)}&itemID=#{@item.id}" %>
           <% end %>
         <% end %>
       <% end %>
@@ -57,8 +57,8 @@
   
   <div class="span8">
     <div class="row">
-      <div class="span6 offset3">
-        <%= form_for @item, :html => {:multipart => true} do |f| %>
+      <%= form_for @item, :html => {:multipart => true} do |f| %>
+        <div class="new_and_edit_item_form" %>
           <%= render 'shared/error_messages', object: f.object %>
           <div class="field">
             <label for="item_brand_id">品牌:</label>
@@ -69,14 +69,20 @@
               <label for="item_subcategory_id">子类别:</label>
               <%= f.collection_select :subcategory_id, Subcategory.find(:all), :id, :name, :promot => "子类别" %>
             </p>
-            <%= f.text_area :item_english, placeholder: "物品英文名..." %>
-            <%= f.text_area :item_chinese, placeholder: "物品中文名..." %>
+            <label>物品英文名：</label>
+            <%= f.text_field :item_english, placeholder: "物品英文名..." %>
+            <label>物品中文名：</label>
+            <%= f.text_field :item_chinese, placeholder: "物品中文名..." %>
+            <label>价格：</label>
+            <%= f.text_field :price, placeholder: "价格..." %>
+            <label>性质：</label>
+            <%= f.text_field :character, placeholder: "性质..." %>
           </div>
           <p><label for="upload_file">添加图片</label> 
           <%= file_field 'upload', 'datafile' %></p>
-          <%= f.submit "保存", class: "btn btn-large btn-primary" %>
+        </div>
+          <%= f.submit "保存", class: "btn btn-primary" %>
         <% end %>
-      </div>
     </div>
   </div>
 </div>

@@ -2,6 +2,7 @@ class Item < ActiveRecord::Base
 	belongs_to :brand
 	belongs_to :subcategory
 	has_many :comments, dependent: :destroy
+	has_many :item_addrs, dependent: :destroy
 
 	default_scope -> {order('item_english')}
 
@@ -10,7 +11,6 @@ class Item < ActiveRecord::Base
 	validates :brand_id, presence: true
 	validates :subcategory_id, presence: true
 	validates :category_id, presence: true
-	validates :price, length: {maximum: 300}
 
 	def item_name
 		self.item_english+"-"+self.item_chinese
@@ -41,6 +41,14 @@ class Item < ActiveRecord::Base
 		directory = "app/assets/images/"+self.id.to_s()
 		removeFile(directory)
 	end
+
+	def self.find_pictures(item)
+		directory = "app/assets/images/"+item.id.to_s() 
+		if(File.exist?(directory))
+    		Find.find(directory)
+    	end
+	end
+
 
 	private
 		def removeFile(directory)

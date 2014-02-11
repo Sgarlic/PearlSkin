@@ -7,37 +7,65 @@
 <div class="row">
 	<aside class="span4">
 		<section>
-			<h1>
-				<%= @item.item_english %>
-				<%= @item.item_chinese %>
+			<span class="item_brand">
 				<% brand=Brand.find(@item.brand_id) %>
 				<%= link_to brand.brand_name, brand_path(@item.brand_id) %>
-				<% subcategory=Subcategory.find(@item.subcategory_id) %>
-				<% category = Category.find(subcategory.category_id) %>
-				<%= category.name %>
-				<%= subcategory.name %>
-			</h1>
+			</span>
+			<span class="item_name"><%= @item.item_name %></span>
+			<section class="item_other_section">
+				<h4>性质</h4>
+				<span class="item_other"><%= @item.character %></span>
+			</section>
+			<section class="item_other_section">
+				<h4>价格</h4>
+				<span class="item_other"><%= @item.price %></span>
+			</section>
+			</br>
 			<% if(!@pictures.nil?) %>
 				<% @pictures.each do |picture| %>
 					<% if File.basename(picture) != @item.id.to_s() %>
 						<%= image_tag(@item.id.to_s()+"/"+File.basename(picture), :size => "38*27") %>
+						<% break %>
 					<% end %>
 				<% end %>
 			<% end %>
 		</section>
-		<%=link_to "编辑物品", edit_item_path %>
-		<%=link_to "删除物品", @item,  method: :delete,
-									data: { confirm: "确定删除？"} %>
+		<span class="item_edit_delete">
+			<%=link_to "编辑物品", edit_item_path %>
+			<%=link_to "删除物品", @item,  method: :delete,
+										data: { confirm: "确定删除？"} %>
+		</span>
+
+		<section>
+			<% if @item.item_addrs.any? %>
+				<span class="item_brand">物品链接 (<%= @item.item_addrs.count %>)</span>
+      			<ol class="microposts">
+        			<%= render @item_addrs %>
+     			</ol>
+      			<%= will_paginate @comments %>
+    		<% end %>
+		</section>
+		<section>
+			<h3>添加链接</h3>
+			<%= render 'item_addr_form' %>
+		</section>
 	</aside>
 
 	<div class="span8">
-		<%= render 'comment_form' %>
-		<% if @item.comments.any? %>
-			<h3>Comments (<%= @item.comments.count %>)</h3>
-      		<ol class="microposts">
-        		<%= render @comments %>
-     		</ol>
-      		<%= will_paginate @comments %>
-    	<% end %>
+		<section>
+			<% if @item.comments.any? %>
+				<h3>评价(<%= @item.comments.count %>)</h3>
+	      		<ol class="microposts">
+	        		<%= render @comments %>
+	     		</ol>
+	      		<%= will_paginate @comments %>
+	    	<% end %>
+	    </section>
+	    <br>
+	    <br>
+    	<section>
+    		<h3>添加评论：</h3>
+    		<%= render 'comment_form' %>
+    	</section>
     </div>
 </div>

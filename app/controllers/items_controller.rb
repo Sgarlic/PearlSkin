@@ -15,7 +15,7 @@ class ItemsController <ApplicationController
 		@item = Item.find(params[:id])
 		@brands = Brand.find_brands
 		@subcategories = Subcategory.find(:all)
-		@pictures = find_pictures(@item)
+		@pictures = Item.find_pictures(@item)
 	end
 
 	def update
@@ -81,7 +81,8 @@ class ItemsController <ApplicationController
 	def show
 		@item = Item.find(params[:id])
 		@comments = @item.comments.paginate(page: params[:page]).per_page(10)
-		@pictures = find_pictures(@item)
+		@pictures = Item.find_pictures(@item)
+		@item_addrs = @item.item_addrs.paginate(page: params[:page]).per_page(10)
 	end
 
 	def delete_picture
@@ -92,7 +93,7 @@ class ItemsController <ApplicationController
 
 	private
 		def item_params
-			params.require(:item).permit(:item_english, :item_chinese, :brand_id, :subcategory_id, :category_id)
+			params.require(:item).permit(:item_english, :item_chinese, :price, :character, :brand_id, :category_id, :subcategory_id)
 		end
 
 		def redirect_to_here(buttonname, item)
@@ -101,13 +102,6 @@ class ItemsController <ApplicationController
 			else
 				redirect_to new_item_path
 			end
-		end
-
-		def find_pictures(item)
-			directory = "app/assets/images/"+item.id.to_s() 
-			if(File.exist?(directory))
-    			Find.find(directory)
-    		end
 		end
 
 		def isPicture?(upload)

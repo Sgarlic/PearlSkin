@@ -1,6 +1,7 @@
 class Brand < ActiveRecord::Base
 	belongs_to :country
 	has_many :items, dependent: :destroy
+	has_many :brand_addrs, dependent: :destroy
 
 	default_scope -> {order('brand_english')}
 

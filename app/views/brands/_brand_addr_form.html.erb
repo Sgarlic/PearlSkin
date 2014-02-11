@@ -1,0 +1,11 @@
+<%= form_for BrandAddr.new do |f| %>
+	<div class="add_link_form">
+	  <%= render 'shared/error_messages', object: f.object %>
+	  <div class="field">
+	    <%= f.text_area :description, placeholder: "添加新的链接描述..." %>
+	    <%= f.text_area :link_addr, placeholder: "链接地址..."  %>
+	    <%= hidden_field_tag 'brand_id', @brand.id  %>
+	  </div>
+	</div>
+	<%= f.submit "提交", class: "btn btn-primary" %>
+<% end %>
