@@ -13,6 +13,9 @@ class Item < ActiveRecord::Base
 	validates :subcategory_id, presence: true
 	validates :category_id, presence: true
 
+	#base_directory = "public/pictures/"
+	#base_directory = "app/assets/images/"
+
 	def item_name
 		self.item_english+"-"+self.item_chinese
 	end
