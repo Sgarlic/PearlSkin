@@ -7,8 +7,8 @@ class Item < ActiveRecord::Base
 
 	default_scope -> {order('item_english')}
 
-	validates :item_english, presence: true, length: {maximum: 140}, uniqueness: true
-	validates :item_chinese, presence: true, uniqueness: true
+	validates :item_english, presence: true
+	validates :item_chinese, presence: true
 	validates :brand_id, presence: true
 	validates :subcategory_id, presence: true
 	validates :category_id, presence: true
