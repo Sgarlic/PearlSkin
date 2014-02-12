@@ -9,7 +9,7 @@ class CreateItems < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :items, :item_english, unique: true
-    add_index :items, :item_chinese, unique: true
+    add_index :items, :item_english
+    add_index :items, :item_chinese
   end
 end
