@@ -1,7 +1,17 @@
 <div class="all_comments">
 	<li>
 		<span class = "content">
-			<div class="all_comments_author"><%= comment.author %>:</div>
+			<div class="all_comments_author">
+				<% if !comment.user_id.nil? %>
+					<% user=User.find(comment.user_id) %>
+				<% end %>
+				<%= gravatar_for user, size: 52 %>
+				<% if user.nil? %>
+					<%= comment.author %>
+				<% else %>
+					<%= link_to user.name, user_path(user.id) %>
+				<% end %>
+			</div>
 			<div class="all_comments_content"><%= comment.content %></div>
 		</span>
 		<% if current_user.admin? %>
