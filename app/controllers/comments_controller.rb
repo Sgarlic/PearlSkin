@@ -9,6 +9,11 @@ class CommentsController <ApplicationController
 	def create
 		@item = Item.find(params[:item_id])
 		@comment = @item.comments.build(comment_params)
+		
+		if @comment.author.nil? || @comment.author==""
+			@comment.user_id = current_user.id
+		end
+
 		begin
 			if @comment.save
 				flash[:success] = "已添加评论"
@@ -31,6 +36,6 @@ class CommentsController <ApplicationController
 
 	private
 		def comment_params
-			params.require(:comment).permit(:content, :author)
+			params.require(:comment).permit(:content, :author, :user_id)
 		end
 end

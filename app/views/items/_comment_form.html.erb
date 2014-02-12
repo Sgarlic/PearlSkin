@@ -6,7 +6,9 @@
 	    	<%= f.text_area :content, placeholder: "添加新的评论..." %>
 	    </div>
 	    <div class="new_comment_author">
-	    	<%= f.text_area :author, placeholder: "作者..."  %>
+	    	<% if current_user.admin? %>
+		    	<%= f.text_area :author, placeholder: "作者..."  %>
+		    <% end %>
 	    </div>
 	    <%= hidden_field_tag 'item_id', @item.id  %>
 	  </div>
