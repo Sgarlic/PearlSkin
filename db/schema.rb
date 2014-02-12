@@ -80,8 +80,8 @@ ActiveRecord::Schema.define(version: 20140212080206) do
     t.string   "character"
   end
 
-  add_index "items", ["item_chinese"], name: "index_items_on_item_chinese", unique: true
-  add_index "items", ["item_english"], name: "index_items_on_item_english", unique: true
+  add_index "items", ["item_chinese"], name: "index_items_on_item_chinese"
+  add_index "items", ["item_english"], name: "index_items_on_item_english"
 
   create_table "subcategories", force: true do |t|
     t.string   "name"
