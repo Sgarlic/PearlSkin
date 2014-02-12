@@ -1,17 +1,20 @@
 <% provide(:title, @item.item_english) %>
 
+<% brand=Brand.find(@item.brand_id) %>
+
 <%= Category.find(@item.category_id).name %> 
 ->
 <%= link_to Subcategory.find(@item.subcategory_id).name, subcategory_path(@item.subcategory_id) %>
-
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp品牌-><%= link_to brand.brand_english, brand_path(@item.brand_id) %>
+<br>
 <div class="row">
 	<aside class="span4">
 		<section>
 			<span class="item_brand">
-				<% brand=Brand.find(@item.brand_id) %>
-				<%= link_to brand.brand_name, brand_path(@item.brand_id) %>
+				<%= brand.brand_english+" "+@item.item_english %>
 			</span>
-			<span class="item_name"><%= @item.item_name %></span>
+			---
+			<span class="item_name"><%= brand.brand_chinese+@item.item_chinese %></span>
 			<section class="item_other_section">
 				<h4>性质</h4>
 				<span class="item_other"><%= @item.character %></span>
@@ -41,10 +44,11 @@
 		<section>
 			<% if @item.item_addrs.any? %>
 				<span class="item_brand">物品链接 (<%= @item.item_addrs.count %>)</span>
+				<%= will_paginate @item_addrs %>
       			<ol class="microposts">
         			<%= render @item_addrs %>
      			</ol>
-      			<%= will_paginate @comments %>
+      			<%= will_paginate @item_addrs %>
     		<% end %>
 		</section>
 		<% if current_user.admin? %>
@@ -59,6 +63,7 @@
 		<section>
 			<% if @item.comments.any? %>
 				<h3>评价(<%= @item.comments.count %>)</h3>
+				<%= will_paginate @comments %>
 	      		<ol class="microposts">
 	        		<%= render @comments %>
 	     		</ol>

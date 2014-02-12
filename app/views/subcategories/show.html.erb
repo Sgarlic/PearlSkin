@@ -8,11 +8,11 @@
 	</span>
 </div>
 
+<%= will_paginate @subcategories_items %>
 <ul class="users">
 	<% @subcategories_items = Item.where("subcategory_id=#{@subcategory.id}").paginate(page: params[:page]).per_page(10) %>
 	<% @subcategories_items.each do |item| %>
 		<%= render 'shared/single_item' , object: item %>
 	<% end %>
-	<%= will_paginate @subcategories_items %>
 </ul>
-
+<%= will_paginate @subcategories_items %>

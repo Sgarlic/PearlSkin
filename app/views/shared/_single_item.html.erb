@@ -9,8 +9,12 @@
 		<% end %>
 	<% end %>
 	<% brand = Brand.find(object.brand_id) %>
-	<%= link_to brand.brand_name, brand_path(brand.id) %>
-	<%= link_to object.item_name, item_path(object.id) %>
-	性质：<%= object.character %>
+	<% single_item_name=brand.brand_english+" "+object.item_english+"-"+brand.brand_chinese+object.item_chinese %>
+	<%= link_to brand.brand_english, brand_path(brand.id) %> 
+	<%= link_to object.item_english, item_path(object.id) %> -
+	<%= brand.brand_chinese+object.item_chinese%>
+	<% if !object.character.nil? && object.character!=""%>
+		性质：<%= object.character %>
+	<% end %>
 </li>
 
