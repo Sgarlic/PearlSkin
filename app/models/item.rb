@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	has_many :item_addrs, dependent: :destroy
 
-	default_scope -> {order('item_english')}
+	#default_scope -> {order('item_english')}
 
 	validates :item_english, presence: true
 	validates :item_chinese, presence: true

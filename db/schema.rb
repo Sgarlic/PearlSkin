@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212153449) do
+ActiveRecord::Schema.define(version: 20140213051743) do
 
   create_table "brand_addrs", force: true do |t|
     t.string   "link_addr"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20140212153449) do
   end
 
   add_index "subcategories", ["name", "category_id"], name: "index_subcategories_on_name_and_category_id", unique: true
-  add_index "subcategories", ["step"], name: "index_subcategories_on_step", unique: true
+  add_index "subcategories", ["step"], name: "index_subcategories_on_step"
 
   create_table "users", force: true do |t|
     t.string   "name"

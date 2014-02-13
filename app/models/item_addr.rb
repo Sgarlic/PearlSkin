@@ -6,7 +6,7 @@ class ItemAddr < ActiveRecord::Base
 	default_scope -> {order('created_at DESC')}
 
 	validates :item_id, presence: true
-	validates :description, presence: true, uniqueness: true
+	validates :description, presence: true
 	validates :link_addr, presence: true, uniqueness: true
 
 end

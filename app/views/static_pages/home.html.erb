@@ -1,1 +1,16 @@
-Hello
+<% provide(:title, "主页") %>
+
+
+<div id="main" class="container">
+	<div id="BCCntr" itempprop="breadcrumb">
+	<span class="BCItem">
+		<h1>最近添加...</h1>
+	</span>
+</div>
+
+<% @items = Item.order(created_at: :desc).first(10) %>
+<ul class="users">
+	<% @items.each do |item| %>
+		<%= render 'shared/single_item' , object: item %>
+	<% end %>
+</ul>
