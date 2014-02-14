@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     if @user.save
       #sign_in @user
       flash[:success] = "创建用户成功!"
-      redirect_to current_user
+      redirect_to user_path(:@user.id)
     else
       flash[:failed] = "创建用户失败!"
       render 'new'
