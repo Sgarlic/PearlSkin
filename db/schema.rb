@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213051743) do
+ActiveRecord::Schema.define(version: 20140214095907) do
 
   create_table "brand_addrs", force: true do |t|
     t.string   "link_addr"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20140213051743) do
 
   create_table "comments", force: true do |t|
     t.integer  "item_id"
-    t.string   "content"
+    t.text     "content",    limit: 255
     t.string   "author"
     t.datetime "created_at"
     t.datetime "updated_at"
