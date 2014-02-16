@@ -5,7 +5,7 @@ class Brand < ActiveRecord::Base
 
 	default_scope -> {order('brand_english')}
 
-	validates :brand_english, presence: true, length: {maximum: 140}, uniqueness: true
+	validates :brand_english, presence: true, length: {maximum: 140}, uniqueness: true, :case_sensitive => false
 	validates :country_id, presence: true
 
 
