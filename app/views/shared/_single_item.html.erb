@@ -3,7 +3,7 @@
 	<% if(!pictures.nil?) %>
 		<% pictures.each do |picture| %>
 			<% if File.basename(picture) != object.id.to_s() %>
-				<%= image_tag(object.id.to_s()+"/"+File.basename(picture), :size => "220*220") %>
+				<%= image_tag("/pictures/"+object.id.to_s()+"/"+File.basename(picture), :size => "120") %>
 				<% break %>
 			<% end %>
 		<% end %>
