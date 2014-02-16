@@ -25,7 +25,7 @@ class Item < ActiveRecord::Base
 			return
 		end
 		name =  self.id.to_s()+"_"+Time.new.to_i.to_s()+"_"+upload['datafile'].original_filename
-    	directory = "app/assets/images/"+self.id.to_s()
+    	directory = "public/pictures/"+self.id.to_s()
 
     	if(!File.exist?(directory))
     		Dir.mkdir(directory)
@@ -37,17 +37,17 @@ class Item < ActiveRecord::Base
 	end
 
 	def removePicture(pictureName)
-		directory = "app/assets/images/"+self.id.to_s()+"/"+pictureName
+		directory = "public/pictures/"+self.id.to_s()+"/"+pictureName
 		removeFile(directory)
 	end
 
 	def removeDir()
-		directory = "app/assets/images/"+self.id.to_s()
+		directory = "public/pictures/"+self.id.to_s()
 		removeFile(directory)
 	end
 
 	def self.find_pictures(item)
-		directory = "app/assets/images/"+item.id.to_s() 
+		directory = "public/pictures/"+item.id.to_s() 
 		if(File.exist?(directory))
     		Find.find(directory)
     	end
