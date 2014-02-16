@@ -27,6 +27,10 @@ class Item < ActiveRecord::Base
 		name =  self.id.to_s()+"_"+Time.new.to_i.to_s()+"_"+upload['datafile'].original_filename
     	directory = "public/pictures/"+self.id.to_s()
 
+    	if(!File.exists?("public/pictures"))
+    		Dir.mkdir("public/pictures")
+    	end
+
     	if(!File.exist?(directory))
     		Dir.mkdir(directory)
     	end
