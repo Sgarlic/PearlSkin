@@ -8,7 +8,6 @@ class Brand < ActiveRecord::Base
 	validates :brand_english, presence: true, length: {maximum: 140}, uniqueness: true, :case_sensitive => false
 	validates :country_id, presence: true
 
-
 	def brand_name
 		self.brand_english+"-"+self.brand_chinese
 	end
