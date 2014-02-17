@@ -1,23 +1,22 @@
-require 'find'
 class ItemsController <ApplicationController
-	before_action :signed_in_user, only: [:show]
-  	before_action :admin_user,     only: [:new, :edit, :update, :create, :destroy, :delete_picture]
+	before_action :signed_in_user, only: [:show, :show_image]
+  	before_action :admin_user,     only: [:new, :edit, :update, :create, :destroy]
 	def new
 		@item = Item.new
 		@brands = Brand.find_brands
 		@subcategories = Subcategory.find(:all)
 
-		#respond_to do |format|
-      	#	format.html {}
-      	#	format.js
-    	#end
 	end
 
 	def edit
 		@item = Item.find(params[:id])
 		@brands = Brand.find_brands
 		@subcategories = Subcategory.find(:all)
-		@pictures = Item.find_pictures(@item)
+	end
+
+	def show_image
+		@item = Item.find(params[:id])
+		send_data @item.image, :type => @item.content_type, :file_name => @item.filename, :size => "120"
 	end
 
 	def update
@@ -28,9 +27,9 @@ class ItemsController <ApplicationController
 		end
 
 		if isPicture?(params[:upload])
+			@item.upload_image = params[:upload]
 			if @item.update_attributes(item_params)
 				flash[:success] = "更新成功！"
-				@item.addPicture(params[:upload])
 				redirect_to item_path
 			else
 				flash[:failed] = "更新失败！"
@@ -53,10 +52,10 @@ class ItemsController <ApplicationController
 
 
 		if isPicture?(params[:upload])
+			@item.upload_image = params[:upload]
 			begin
 				if @item.save
 					flash[:success] = "已添加“#{@item.item_english}”"
-					@item.addPicture(params[:upload])
 					redirect_to_here(buttonname, @item)
 				else
 					flash[:failed] = "添加“#{@item.item_english}”失败"
@@ -74,7 +73,6 @@ class ItemsController <ApplicationController
 
 	def destroy
 		destroy_item = Item.find(params[:id])
-		destroy_item.removeDir
 		destroy_item.destroy
 		flash[:success] = "已删除“#{destroy_item.item_name}”"
 		redirect_to root_path
@@ -83,15 +81,9 @@ class ItemsController <ApplicationController
 	def show
 		@item = Item.find(params[:id])
 		@comments = @item.comments.paginate(page: params[:page]).per_page(10)
-		@pictures = Item.find_pictures(@item)
 		@item_addrs = @item.item_addrs.paginate(page: params[:page]).per_page(10)
 	end
 
-	def delete_picture
-		@item = Item.find(params[:itemID])
-		@item.removePicture(params[:pictureName])
-		redirect_to item_path(@item.id)
-	end
 
 	private
 		def item_params

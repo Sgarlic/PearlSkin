@@ -6,7 +6,6 @@
   <% for subcategory in @subcategories %>
     subcategories.push(new Array(<%= subcategory.category_id %>, '<%=h subcategory.name %>', <%= subcategory.id %>));
   <% end %>
-//alert($('item_category_id').getValue());
   function categorySelected() {
     var category_id = $('#item_category_id').val();
     $("#item_subcategory_id").empty();
@@ -43,20 +42,16 @@
   <aside class="span4">
     <section>
       <h1><%= @item.item_name%></h1>
-      <% if(!@pictures.nil?) %>
-        <% @pictures.each do |picture| %>
-          <% if File.basename(picture) != @item.id.to_s() %>
-            <%= image_tag("/pictures/"+@item.id.to_s()+"/"+File.basename(picture), :size => "120*120") %>
-            <%= link_to "删除", "/delete_picture?pictureName=#{File.basename(picture)}&itemID=#{@item.id}" %>
-          <% end %>
+        <% if !@item.image.nil? %>
+          <%= image_tag url_for(:controller => "items", :action => "show_image", :id => @item.id) %>
         <% end %>
-      <% end %>
     </section>
   </aside>
 
   
-  <div class="span8">
+  <div class="span6 offset1">
     <div class="row">
+      <section>
       <%= form_for @item, :html => {:multipart => true} do |f| %>
         <div class="new_and_edit_item_form" %>
           <%= render 'shared/error_messages', object: f.object %>
@@ -84,5 +79,6 @@
           <%= f.submit "保存", class: "btn btn-primary" %>
         <% end %>
     </div>
+    </section>
   </div>
 </div>

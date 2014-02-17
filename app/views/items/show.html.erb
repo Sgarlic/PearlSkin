@@ -24,13 +24,8 @@
 				<span class="item_other"><%= @item.price %></span>
 			</section>
 			</br>
-			<% if(!@pictures.nil?) %>
-				<% @pictures.each do |picture| %>
-					<% if File.basename(picture) != @item.id.to_s() %>
-						<%= image_tag("/pictures/"+@item.id.to_s()+"/"+File.basename(picture), :size => "120*120") %>
-						<% break %>
-					<% end %>
-				<% end %>
+			<% if !@item.image.nil? %>
+				<%= image_tag url_for(:controller => "items", :action => "show_image", :id => @item.id) %>
 			<% end %>
 		</section>
 		<% if current_user.admin? %>

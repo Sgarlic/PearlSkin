@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214095907) do
+ActiveRecord::Schema.define(version: 20140217140744) do
 
   create_table "brand_addrs", force: true do |t|
     t.string   "link_addr"
@@ -78,6 +78,9 @@ ActiveRecord::Schema.define(version: 20140214095907) do
     t.datetime "updated_at"
     t.integer  "category_id"
     t.string   "character"
+    t.binary   "image"
+    t.string   "filename"
+    t.string   "content_type"
   end
 
   add_index "items", ["item_chinese"], name: "index_items_on_item_chinese"
