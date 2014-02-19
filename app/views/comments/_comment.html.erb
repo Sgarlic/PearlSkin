@@ -13,10 +13,10 @@
 				<% end %>
 			</div>
 			<pre ><div class="all_comments_content"><%= comment.content %></div></pre>
-		</span>
-		<% if current_user.admin? %>
-			<%= link_to "删除", comment,  method: :delete,
+			<% if current_user.admin? %>
+				<%= link_to "删除", comment,  method: :delete,
 									data: { confirm: "确定删除？"} %>
-		<% end %>
+			<% end %>
+		</span>
 	</li>
 </div>

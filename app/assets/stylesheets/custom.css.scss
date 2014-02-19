@@ -407,6 +407,7 @@ aside {
   padding-bottom: 2px;
   padding-top: 2px;
   line-height: 1.5;
+  padding-left: 52px; 
 }
 
 /* forms */
@@ -468,10 +469,6 @@ input {
 
 .timestamp {
   color: $grayLight;
-}
-.gravatar {
-  float: left;
-  margin-right: 10px;
 }
 aside {
   textarea {
