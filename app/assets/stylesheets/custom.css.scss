@@ -19,7 +19,17 @@ section {
 }
 
 textarea {
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
   resize: vertical;
+}
+
+input {
+  font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
+}
+
+pre {
+  background-color: #FFFFFF;
+  border: 0px solid rgba(0, 0, 0, 0.15);
 }
 
 .center {
@@ -262,6 +272,7 @@ aside {
 }
 
 /* country */
+
 .add_country_form textarea{
   border: 1px solid #bbb;
   width: 50%;
@@ -338,11 +349,12 @@ aside {
 
 .link_addr {
   font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
-  font-size: 1.3em;
+  font-size: 1.2em;
   padding-bottom: 11px;
   padding-top: 2px;
   line-height: 1;
   font-weight: bold;
+  word-break:break-all;
 }
 
 .link_addr .link_addr_description{
@@ -357,9 +369,9 @@ aside {
 }
 
 .link_addr .link_addr_delete{
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-family: inhert;
-  padding-top: 2px;
+  padding-top: 3px;
 }
 
 
@@ -374,7 +386,7 @@ aside {
 
 .new_comment_author textarea{
   border: 1px solid #bbb;
-  width: 13%;
+  width: 23%;
   margin-bottom: 15px;
   @include box_sizing;
   height: 30px;
@@ -383,7 +395,7 @@ aside {
 .all_comments_author{
   font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
   font-size: 1.2em;
-  padding-bottom: 11px;
+  padding-bottom: 2px;
   padding-top: 2px;
   line-height: 1;
   color: #0078b6;
@@ -392,7 +404,7 @@ aside {
 .all_comments_content{
   font-family: "Microsoft YaHei","WenQuanYi Micro Hei",tahoma,sans-serif;
   font-size: 1.0em;
-  padding-bottom: 11px;
+  padding-bottom: 2px;
   padding-top: 2px;
   line-height: 1.5;
 }

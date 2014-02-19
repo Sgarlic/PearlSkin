@@ -12,7 +12,7 @@
 					<%= link_to user.name, user_path(user.id) %>
 				<% end %>
 			</div>
-			<div class="all_comments_content"><%= comment.content %></div>
+			<pre ><div class="all_comments_content"><%= comment.content %></div></pre>
 		</span>
 		<% if current_user.admin? %>
 			<%= link_to "删除", comment,  method: :delete,
