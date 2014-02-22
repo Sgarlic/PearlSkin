@@ -48,6 +48,10 @@ group :production do
   gem 'rails_12factor', '0.0.2'
 end
 
+group :assets do
+	gem "twitter-bootstrap-rails"
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
