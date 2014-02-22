@@ -1,0 +1,26 @@
+<section>
+	<%= link_to show_user_items_path(:linktype => "favourite", :user_id => @user.id) , :remote => true do%>
+		<h4>
+			<i class="icon-heart"></i>
+			喜欢(<%= @user.favourites.count %>)
+		</h4>
+	<% end %>
+</section>
+	
+<section>
+	<%= link_to show_user_items_path(:linktype => "plan", :user_id => @user.id) , :remote => true do%>
+		<h4>
+			<i class="icon-time"></i>
+			计划(<%= @user.plans.count %>)
+		</h4>
+	<% end %>
+</section>
+
+<section>
+	<%= link_to show_user_items_path(:linktype => "used", :user_id => @user.id) , :remote => true do%>
+		<h4>
+			<i class="icon-check"></i>
+			用过(<%= @user.useds.count %>)
+		</h4>
+	<% end %>
+</section>

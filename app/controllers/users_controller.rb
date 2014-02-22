@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:index, :edit, :update, :show]
+  before_action :signed_in_user, only: [:index, :edit, :update, :show, :show_favourite,
+    :show_plan, :show_used]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: [:new, :create, :destroy]
 
@@ -45,6 +46,29 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "删除用户成功"
     redirect_to users_url
+  end
+
+  def show_user_items
+    linktype = params[:linktype]
+    @user = User.find(params[:user_id])
+    if linktype == "favourite"
+      @relationships = @user.favourites.paginate(page: params[:page]).per_page(10)
+    elsif linktype == "plan"
+      @relationships = @user.plans.paginate(page: params[:page]).per_page(10)
+    else
+      @relationships = @user.useds.paginate(page: params[:page]).per_page(10)
+    end
+
+    respond_to do |format|
+      # format.html { redirect_to item_path(@item_id) }
+      format.js
+    end
+  end
+
+  def show_plan
+  end
+
+  def show_used
   end
 
   private

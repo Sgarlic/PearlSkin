@@ -477,3 +477,27 @@ aside {
   }
 }
 
+/* User item relationships*/
+.user_item_relationships{
+  width: 100%;
+ 
+  .relationshipname{
+    float: left;
+    width: 33%;
+    .relationshipbutton{
+      border: 0px;
+      -webkit-border-radius: 0;
+      
+      background-image: none;
+      border-radius: 0;
+      -webkit-box-shadow: none;
+
+      line-height: 20px;
+      height: 40px;
+      width: 100%;
+    }
+    .relationshipicon{
+      float: left;
+    }
+  }
+}

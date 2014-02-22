@@ -8,17 +8,27 @@ PearlSkin::Application.routes.draw do
   resources :comments
   resources :brand_addrs
   resources :item_addrs
-  resources :users
+  resources :users do
+    member do
+      get :useds
+      get :favourites
+      get :plans
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :useds, only: [:create, :destroy]
+  resources :favourites, only: [:create, :destroy]
+  resources :plans, only: [:create, :destroy]
 
   root to: 'static_pages#home'
 
-  match '/all_brands', to: 'brands#all_brands', via: 'get'
-  match '/delete_picture', to: 'items#delete_picture', via:'get'
+  match 'all_brands', to: 'brands#all_brands', via: 'get'
   match 'signup', to: 'users#new', via:'get'
   match 'signin', to: 'sessions#new', via:'get'
   match 'signout', to: 'sessions#destroy', via:'delete'
   match 'show_image', to: 'items#show_image', via:'get'
+  match 'show_user_items', to: 'users#show_user_items', via:'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

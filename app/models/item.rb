@@ -3,6 +3,9 @@ class Item < ActiveRecord::Base
 	belongs_to :subcategory
 	has_many :comments, dependent: :destroy
 	has_many :item_addrs, dependent: :destroy
+	has_many :useds, dependent: :destroy
+	has_many :plans, dependent: :destroy
+	has_many :favourites, dependent: :destroy
 
 	#default_scope -> {order('item_english')}
 
@@ -25,5 +28,5 @@ class Item < ActiveRecord::Base
 		self.filename =  incoming_file.original_filename
 		self.content_type = incoming_file.content_type
 		self.image = incoming_file.read
-	end 
+	end
 end

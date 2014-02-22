@@ -1,0 +1,8 @@
+<%= form_for(current_user.favourites.find_by(item_id: object),
+	html: {method: :delete}, remote: true) do |f| %>
+  	<div><%= f.hidden_field :item_id %></div>
+  	<button class="btn btn-danger relationshipbutton" data-original-title="标记为喜欢的物品" type="submit">
+		<i class="icon-white icon-heart relationshipicon"></i>
+		<span>喜欢</span>
+	</button>
+<% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217140744) do
+ActiveRecord::Schema.define(version: 20140222073356) do
 
   create_table "brand_addrs", force: true do |t|
     t.string   "link_addr"
@@ -60,6 +60,17 @@ ActiveRecord::Schema.define(version: 20140217140744) do
 
   add_index "countries", ["country_name"], name: "index_countries_on_country_name"
 
+  create_table "favourites", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "favourites", ["item_id"], name: "index_favourites_on_item_id"
+  add_index "favourites", ["user_id", "item_id"], name: "index_favourites_on_user_id_and_item_id", unique: true
+  add_index "favourites", ["user_id"], name: "index_favourites_on_user_id"
+
   create_table "item_addrs", force: true do |t|
     t.string   "link_addr"
     t.string   "description"
@@ -86,6 +97,28 @@ ActiveRecord::Schema.define(version: 20140217140744) do
   add_index "items", ["item_chinese"], name: "index_items_on_item_chinese"
   add_index "items", ["item_english"], name: "index_items_on_item_english"
 
+  create_table "likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["item_id"], name: "index_likes_on_item_id"
+  add_index "likes", ["user_id", "item_id"], name: "index_likes_on_user_id_and_item_id", unique: true
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
+
+  create_table "plans", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "plans", ["item_id"], name: "index_plans_on_item_id"
+  add_index "plans", ["user_id", "item_id"], name: "index_plans_on_user_id_and_item_id", unique: true
+  add_index "plans", ["user_id"], name: "index_plans_on_user_id"
+
   create_table "subcategories", force: true do |t|
     t.string   "name"
     t.integer  "category_id"
@@ -96,6 +129,17 @@ ActiveRecord::Schema.define(version: 20140217140744) do
 
   add_index "subcategories", ["name", "category_id"], name: "index_subcategories_on_name_and_category_id", unique: true
   add_index "subcategories", ["step"], name: "index_subcategories_on_step"
+
+  create_table "useds", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "useds", ["item_id"], name: "index_useds_on_item_id"
+  add_index "useds", ["user_id", "item_id"], name: "index_useds_on_user_id_and_item_id", unique: true
+  add_index "useds", ["user_id"], name: "index_useds_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

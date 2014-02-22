@@ -27,6 +27,29 @@
 			<% if !@item.image.nil? %>
 				<%= image_tag url_for(:controller => "items", :action => "show_image", :id => @item.id) %>
 			<% end %>
+			<div class="user_item_relationships">
+				<div id = "favourite_form" class="relationshipname">
+					<% if current_user.favourite?(@item.id) %>
+						<%= render 'unfavourite', object: @item.id %>
+					<% else %>
+						<%= render 'favourite', object: @item.id %>
+					<% end %>
+				</div>
+				<div id = "plan_form" class="relationshipname">
+					<% if current_user.plan?(@item.id) %>
+						<%= render 'unplan', object: @item.id %>
+					<% else %>
+						<%= render 'plan', object: @item.id %>
+					<% end %>
+				</div>
+				<div id = "used_form" class="relationshipname">
+					<% if current_user.used?(@item.id) %>
+						<%= render 'unuse', object: @item.id %>
+					<% else %>
+						<%= render 'use', object: @item.id %>
+					<% end %>
+				</div>
+			</div>
 		</section>
 		<% if current_user.admin? %>
 			<span class="item_edit_delete">

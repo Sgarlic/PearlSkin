@@ -1,0 +1,8 @@
+<%= form_for(current_user.plans.find_by(item_id: object),
+	html: {method: :delete}, remote: true) do |f| %>
+  	<div><%= f.hidden_field :item_id %></div>
+  	<button class="btn btn-warning relationshipbutton" data-original-title="计划购入的物品" type="submit">
+		<i class="icon-time icon-white relationshipicon"></i>
+		<span>计划</span>
+	</button>
+<% end %>
