@@ -13,8 +13,6 @@ gem 'will_paginate', '3.0.4'
 
 gem 'bootstrap-will_paginate', '0.0.9'
 
-gem "twitter-bootstrap-rails"
-
 group :development do
   gem 'sqlite3'
 end
