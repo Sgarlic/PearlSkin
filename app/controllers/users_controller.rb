@@ -52,23 +52,17 @@ class UsersController < ApplicationController
     linktype = params[:linktype]
     @user = User.find(params[:user_id])
     if linktype == "favourite"
-      @relationships = @user.favourites.paginate(page: params[:page]).per_page(10)
+      @relationships = @user.favourites.order(created_at: :desc).paginate(page: params[:page]).per_page(10)
     elsif linktype == "plan"
-      @relationships = @user.plans.paginate(page: params[:page]).per_page(10)
+      @relationships = @user.plans.order(created_at: :desc).paginate(page: params[:page]).per_page(10)
     else
-      @relationships = @user.useds.paginate(page: params[:page]).per_page(10)
+      @relationships = @user.useds.order(created_at: :desc).paginate(page: params[:page]).per_page(10)
     end
 
     respond_to do |format|
       # format.html { redirect_to item_path(@item_id) }
       format.js
     end
-  end
-
-  def show_plan
-  end
-
-  def show_used
   end
 
   private

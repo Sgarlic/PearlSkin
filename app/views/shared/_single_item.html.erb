@@ -1,6 +1,6 @@
 <li>
 	<% if !object.image.nil? %>
-		<%= image_tag url_for(:controller => "items", :action => "show_image", :id => object.id), size: "120" %>
+		<%= image_tag url_for(:controller => "items", :action => "show_image", :id => object.id), size: "120x120" %>
 	<% end %>
 	<% brand = Brand.find(object.brand_id) %>
 	<% single_item_name=brand.brand_english+" "+object.item_english+"-"+brand.brand_chinese+object.item_chinese %>
