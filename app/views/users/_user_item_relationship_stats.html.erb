@@ -1,7 +1,7 @@
 <section>
 	<%= link_to show_user_items_path(:linktype => "favourite", :user_id => @user.id) , :remote => true do%>
 		<h4>
-			<i class="icon-heart"></i>
+			<span class="glyphicon glyphicon-heart"></span>
 			喜欢(<%= @user.favourites.count %>)
 		</h4>
 	<% end %>
@@ -10,7 +10,7 @@
 <section>
 	<%= link_to show_user_items_path(:linktype => "plan", :user_id => @user.id) , :remote => true do%>
 		<h4>
-			<i class="icon-time"></i>
+			<span class="glyphicon glyphicon-time"></span>
 			计划(<%= @user.plans.count %>)
 		</h4>
 	<% end %>
@@ -19,7 +19,7 @@
 <section>
 	<%= link_to show_user_items_path(:linktype => "used", :user_id => @user.id) , :remote => true do%>
 		<h4>
-			<i class="icon-check"></i>
+			<i class="glyphicon glyphicon-check"></i>
 			用过(<%= @user.useds.count %>)
 		</h4>
 	<% end %>

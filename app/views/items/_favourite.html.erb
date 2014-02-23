@@ -1,7 +1,7 @@
 <%= form_for(current_user.favourites.build(item_id: object), remote: true) do |f| %>
   	<div><%= f.hidden_field :item_id %></div>
   	<button class="btn relationshipbutton" data-original-title="标记为喜欢的物品" type="submit">
-		<i class="icon-heart relationshipicon"></i>
+		<i class="glyphicon glyphicon-heart relationshipicon"></i>
 		<span>喜欢</span>
 	</button>
 <% end %>
