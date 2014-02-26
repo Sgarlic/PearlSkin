@@ -1,6 +1,5 @@
 <% provide(:title, "主页") %>
 
-
 <div id="main" class="container">
 	<div id="BCCntr" itempprop="breadcrumb">
 	<span class="BCItem">
@@ -8,9 +7,9 @@
 	</span>
 </div>
 <div class="row">
-<div class="span1"></div>
-<div class="span9">
-<% @items = Item.order(created_at: :desc).first(9) %>
-<%= render 'shared/item_gridview' , object: @items %>
-</div>
+	<div class="span1"></div>
+	<div class="span9">
+		<% @items = Item.order(created_at: :desc).first(9) %>
+		<%= render 'shared/item_gridview' , object: @items %>
+	</div>
 </div>

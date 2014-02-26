@@ -7,8 +7,19 @@
 				<%= @subcategory.subcategory_name %>
 			</span>
 		</section>
+		<section>
+			<% @item_brands = Item.includes(:brand).where("subcategory_id=#{@subcategory.id}").order('brands.brand_english').count(:group=>"brand_id") %>
+			<% @item_brands.each do |item_brand| %>
+				<%= link_to show_subcategory_brand_items_path(:brand_id => item_brand[0], :subcategory_id => @subcategory.id) , :remote => true do%>
+					<h4>
+						<%= Brand.find(item_brand[0]).brand_name %>(<%= item_brand[1] %>)
+						<br>
+					</h4>
+				<% end %>
+			<% end %>
+		</section>
 	</aside>
-	<div class="span9">
+	<div id = "subcategory_brand_items" class="span9">
 		<% @subcategories_items = Item.includes(:brand).where("subcategory_id=#{@subcategory.id}").order('brands.brand_english, item_english').paginate(page: params[:page]).per_page(15) %>
 		<%= will_paginate @subcategories_items %>
 		<%= render 'shared/item_gridview' , object: @subcategories_items %>

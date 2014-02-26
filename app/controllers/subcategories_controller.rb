@@ -46,6 +46,17 @@ class SubcategoriesController <ApplicationController
 		redirect_to category_path(@subcategory.category_id)
 	end
 
+  def show_subcategory_brand_items
+    brand_id = params[:brand_id]
+    subcategory_id = params[:subcategory_id]
+    @items = Item.where("subcategory_id=#{subcategory_id}").where("brand_id=#{brand_id}").order('item_english')
+    
+    respond_to do |format|
+      # format.html { redirect_to item_path(@item_id) }
+      format.js
+    end
+  end
+
 	private
 		def subcategory_params
 			params.require(:subcategory).permit(:name, :step)

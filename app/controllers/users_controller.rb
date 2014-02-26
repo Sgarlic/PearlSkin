@@ -52,11 +52,14 @@ class UsersController < ApplicationController
     linktype = params[:linktype]
     @user = User.find(params[:user_id])
     if linktype == "favourite"
-      @relationships = @user.favourites.order(created_at: :desc).paginate(page: params[:page]).per_page(10)
+      @relationships = @user.favourites.order(created_at: :desc)
+      @items = Item.find(@relationships)
     elsif linktype == "plan"
-      @relationships = @user.plans.order(created_at: :desc).paginate(page: params[:page]).per_page(10)
+      @relationships = @user.plans.order(created_at: :desc)
+      @items = Item.find(@relationships)
     else
-      @relationships = @user.useds.order(created_at: :desc).paginate(page: params[:page]).per_page(10)
+      @relationships = @user.useds.order(created_at: :desc)
+      @items = Item.find(@relationships)
     end
 
     respond_to do |format|
