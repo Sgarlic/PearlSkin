@@ -105,11 +105,11 @@ a.prodtextlink:hover{text-decoration:underline;color:#444444}
 
 .itemGridbty
 {
-	width: 270px;
+	width: 231px;
 	display: inline;
 	float: left;
 	padding: 0;
-	height: 317px;
+	height: 300px;
 	border-bottom: 2px solid #eeeeee;
 	margin: 0;
 }
@@ -142,7 +142,7 @@ a.prodtextlink:hover{text-decoration:underline;color:#444444}
 .itemGridbty .info
 {
 	height: 95px;
-	width: 240px;
+	width: 200px;
 	overflow: hidden;
 	margin: 10px 20px 5px;
 	padding: 0;
