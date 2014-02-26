@@ -1,7 +1,7 @@
 <%= form_for(current_user.useds.build(item_id: object), remote: true) do |f| %>
   	<div><%= f.hidden_field :item_id %></div>
 	<button class="btn relationshipbutton" data-original-title="标记为用过的物品">
-		<i class="glyphicon glyphicon-check relationshipicon"></i>
+		<i class="icon-check relationshipicon"></i>
 		<span>用过</span>
 	</button>
 <% end %>
