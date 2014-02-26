@@ -1,12 +1,17 @@
 <% provide(:title, @subcategory.subcategory_name) %>
 
-
-<div id="main" class="container">
-	<div id="BCCntr" itempprop="breadcrumb">
-	<span class="BCItem">
-		<h1><%= @subcategory.subcategory_name %></h1>
-	</span>
+<div class="row">
+	<aside class="span3">
+		<section>
+			<span class="item_brand">
+				<%= @subcategory.subcategory_name %>
+			</span>
+		</section>
+	</aside>
+	<div class="span9">
+		<% @subcategories_items = Item.includes(:brand).where("subcategory_id=#{@subcategory.id}").order('brands.brand_english, item_english').paginate(page: params[:page]).per_page(15) %>
+		<%= will_paginate @subcategories_items %>
+		<%= render 'shared/item_gridview' , object: @subcategories_items %>
+		<%= will_paginate @subcategories_items %>
+	</div>
 </div>
-
-<% @subcategories_items = Item.includes(:brand).where("subcategory_id=#{@subcategory.id}").order('brands.brand_english, item_english').paginate(page: params[:page]).per_page(18) %>
-<%= render 'shared/item_gridview' , object: @subcategories_items %>
