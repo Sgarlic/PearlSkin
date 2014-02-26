@@ -1,0 +1,472 @@
+/*Display Product Layouts*/
+.grids{position:relative}
+.grids .row{margin-left:0}
+.grids h1{color:#343434;font-size:1.1em;margin:18px 0;text-transform:uppercase}
+.grids h2{width:145px;line-height:20px;text-transform:uppercase;font-size:20px;margin-bottom:12px}
+.grids h2 span{font-family:Arial;font-weight:normal}
+.grids .btn{padding:0;font-size:13px}
+.grids h2,.grids .btn{position:relative;z-index:3}
+.grids h3{position:absolute;right:0;top:0}
+.grids h4{position:absolute;right:0;top:0}
+.grids h3 .btn{border:0;box-shadow:none;background:none}
+.grids h3 a:link,.grids h3 a:hover{color:#FC7B6E}
+.row .target{position:relative;width:477px;height:330px;padding-left:13px;padding-top:26px;border-right:2px solid #eee;background-color:#fff}
+.row .target-box,.row .normal-box{position:relative;background-color:#fff;padding:0;border-right:2px solid #eee}
+.row .normal{position:relative;width:250px;padding-left:14px;height:330px;padding-top:26px;border-right:2px solid #eee;background-color:#fff}
+.row .normal-box{}
+.row .promo-corner{position:absolute;top:26px;right:32px;z-index:0}
+.row .promo-bottom{position:absolute;right:0;bottom:0;z-index:0}
+.row section.last{border-right:0;margin-right:0}
+
+/*What's Trending Carousel*/
+.carousel_4 .item{width:100%;overflow:hidden}
+.carousel_4 .product{background-color:#fff;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;float:left;position:relative;width:245px;*width: 243px;height:330px;border-right:2px solid #eee;overflow:hidden}
+ .flex-box-4 .product{background-color:#fff;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;float:left;width:245px;height:380px;border-right:2px solid #eee;overflow:hidden}
+.carousel_4 .product img.productItem,.flex-box-3.item .product img.productItem{margin-bottom:15px}
+.carousel_4 .product_information,.flex-box-3.item .product .product_information,
+.flex-box-4.item .product .product_information{bottom:12px;left:0;padding:0 6px 0 12px;width:224px;font-size:1em}
+.flex-box-4.item .product .product_information .signage{color:#ff0000;height:15px;font-family:Arial;font-weight:bold}
+.flex-box-4.item .product .product_information .ratingReview{height:15px}
+.flex-box-4.item .product .product_information .productDesc{height:45px}
+.flex-box-4.item .product .prodImg{margin:15px 15px 10px 9px;width:220px}
+.carousel_4 .product_information h2,.flex-box-3.item .product .product_information h2,.flex-box-4.item .product .product_information h2{margin-bottom:11px;text-transform:none;font-size:12px; font-weight:normal;width:100%;line-height:16px}
+.flex-box-4.item .product .product_information h2 a{color:Black}
+.carousel_4 .product_information h2 strong,
+.flex-box-3.item .product .product_information h2 strong,
+.flex-box-4.item .product .product_information h2 strong{text-transform:uppercase;font-weight:bold;font-family:Arial;color:#444444}
+.flex-box-3.item .new,.pdetailProductImage .new{position:absolute;display:block;z-index:1}
+.carousel_4 .product .shop,.item .product .shop{font-size:11px}
+.carousel_4 .product .shop li{display:inline;font-size:1.2em;height:27px;width:100px;padding-left:10px;}
+.item .product .shop li{display:inline;font-size:1.2em;height:27px;width:100px;}
+.carousel_4 .product .shop .price{float:left;font-weight:bold;padding-top:5px;}
+.item .product .shop .price{float:left;font-weight:bold;white-space: nowrap}
+.item .product .shop .priceText{padding-top:8px}
+.carousel_4 .product .shop .add_to_bag,.item .product .shop .add_to_bag{float:right}
+.carousel_4 .product .shop .shopaddtobag,.item .product .shop .shopaddtobag{float:right}
+.carousel_4 .product .shop .add_to_bag a,.item .product .shop .add_to_bag a{float:right;width:100px}
+.carousel_4 .carousel-control.left{left:-6px;border:0}
+.carousel_4 .carousel-control span{display:block;height:60px;width:30px;margin-top:0;margin-left:0;background-color:transparent;background-repeat:no-repeat}
+.carousel_4 .carousel-control span{background-image:url(/img/beauty/carousel-arrows.png)}
+.carousel_4 .carousel-control.left span.l_arrow{background-position:0 0}
+.carousel_4 .carousel-control.right{border:0;left:956px}
+.carousel_4 .carousel-control.right span.r_arrow{background-position:-34px 0}
+.dvimgRating{position:relative;height:20px;width:auto}
+.dvprodtextDesc{position:relative;height:50px;width:auto}
+.dvprodtextDesc span{margin-bottom:11px;text-transform:none;font-size:.9em; font-weight:normal;width:100%;line-height:16px}
+.dvprodtextDesc .prodtextlink{padding-left:3px} 
+a.prodtextlink:link{color:#444444}
+a.prodtextlink:visited{color:#444444}
+a.prodtextlink:hover{text-decoration:underline;color:#444444}
+/*Modal - Skin Care*/
+#promo-banner-container .mainpromo{float:left;width:542px;border-right:2px solid #eee}
+#promo-banner-container .secondarypromo{float:left;width:270px}
+#promo-banner-container .secondarypromo .first{border-bottom:2px solid #eee}
+.flex-box-3.item,.flex-box-4.item{background-color:#fff;overflow:hidden;width:100%}
+.flex-box-3 .product{-moz-box-sizing:border-box;background-color:#FFFFFF;border-right:2px solid #EEEEEE;border-bottom:2px solid #EEEEEE;float:left;height:330px;min-height:330px;width:270px;position:relative}
+.flex-box-3 .product.last,.flex-box-4 .product.last{border-right:0}
+
+/*plist grid view*/
+.itemGridbty.firstCol
+{
+	margin: 0;
+	margin-bottom: 0;
+	border-right: 2px solid #eeeeee;
+}
+
+.itemGridbty.centerCol
+{
+	margin: 0;
+	margin-bottom: 0;
+	border-right: 2px solid #eeeeee;
+}
+
+.itemGridbty.lastCol
+{
+	margin: 0;
+	border-left: none;
+}
+
+.lastCol, .centerCol
+{
+	border: none;
+}
+
+.flex-box-3 .centerCol
+{
+	margin: 0;
+	border-left: none;
+}
+
+.flex-box-3 .lastCol
+{
+	margin: 0;
+	border-left: 0;
+}
+
+.itemGridbty
+{
+	width: 270px;
+	display: inline;
+	float: left;
+	padding: 0;
+	height: 317px;
+	border-bottom: 2px solid #eeeeee;
+	margin: 0;
+}
+
+.itemGridbtymodule
+{
+	width: 270px;
+	display: inline;
+	float: left;
+	padding: 0;
+	height: 380px;
+	margin: 0;
+	border-bottom: 2px solid #eeeeee;
+}
+
+	.itemGridbtymodule .prodImg, .itemGridbty .prodImg
+	{
+		width: 220px;
+		height: 220px;
+		margin: 15px 15px 0 9px;
+	}
+
+		.itemGridbtymodule .prodImg img, .itemGridbty .prodImg img
+		{
+			margin: 0 0 0 10px;
+			height: 220px;
+			width: 220px;
+		}
+
+.itemGridbty .info
+{
+	height: 95px;
+	width: 240px;
+	overflow: hidden;
+	margin: 10px 20px 5px;
+	padding: 0;
+}
+
+.itemGrigbtyEmpty
+{
+	width: 270px;
+	float: left;
+	height: 428px;
+	border-bottom: 2px solid #eeeeee;
+}
+
+#gridViewEmpty2
+{
+	border-left: 2px solid #eeeeee;
+}
+
+.itemGridbtymodule .productinfo
+{
+	height: 40px;
+	width: 240px;
+	overflow: hidden;
+	margin: 10px 20px 5px;
+	padding: 0;
+}
+
+.itemGridbtymodule .price, .itemGridbty .price
+{
+	width: 120px;
+	margin: 0 0 0 20px;
+	overflow: hidden;
+	height: 15px;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 1em;
+	line-height: 15px;
+	color: #444444;
+}
+
+	.itemGridbty .price .PListStrikePrice
+	{
+		font-family: Arial;
+		font-size: 1em;
+		font-weight: bold;
+		padding-right: 5px;
+		text-decoration: line-through;
+	}
+
+.itemGridbtymodule #priceAndButtonTbl #buttonTd, .itemGridbty #priceAndButtonTbl #buttonTd
+{
+	padding: 0 10px 10px 15px;
+	width: 100%;
+}
+
+.itemGridbtymodule .addToBag, .itemGridbty .addToBag
+{
+	display: block;
+	padding-left: 12px;
+}
+
+.itemGridbtymodule .moreOptionsButton, .itemGridbty .moreOptionsButton
+{
+	display: block;
+	padding: 0;
+}
+
+.itemGridbty #buttonSimilarItem
+{
+	padding-right: 10px;
+}
+
+.specialoffer
+{
+	font-size: 11px;
+	font-weight: bold;
+	font-family: Georgia,Arial;
+	font-style: italic;
+	color: red;
+	width: 100%;
+}
+
+.featured-products .itemGridbty .priceAndButtonTbl
+{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+	.featured-products .itemGridbty .priceAndButtonTbl .PListBuyButton
+	{
+		margin-bottom: 10px;
+	}
+
+.itemGridbty .stock
+{
+	font-family: Arial;
+	font-size: 10px;
+	color: #666666;
+	padding-left: 20px;
+}
+
+.itemGridbty .saveTo
+{
+	padding: 7px 0 0 9px;
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 11px;
+	line-height: 14px;
+	color: #666666;
+}
+
+	.itemGridbty .saveTo .xsmall
+	{
+		font-family: Arial;
+		font-weight: normal;
+		font-size: 11px;
+		line-height: 14px;
+		color: #666666;
+	}
+
+.itemGridbtymodule .customerRating, .itemGridbty .customerRating
+{
+	margin-left: 20px;
+	height: 10px;
+	width: 100%;
+	margin-top: 10px;
+}
+
+	.itemGridbtymodule .customerRating .rating, .itemGridbty .customerRating .rating
+	{
+		text-align: left;
+	}
+
+.itemGridbty .brandName
+{
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 1em;
+	line-height: 15px;
+	color: #444444;
+	text-transform: uppercase;
+}
+
+.itemGridbty .info .proddesc, .prodinfo
+{
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 18px;
+	color: #444444;
+}
+
+.itemGridbty .info a.oesLink
+{
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 18px;
+	color: #444444;
+}
+
+	.itemGridbty .info a.oesLink .proddesc, .prodinfo, .brand
+	{
+		font-family: Arial;
+		font-weight: normal;
+		font-size: 1em;
+		line-height: 18px;
+		color: #444444;
+	}
+
+.itemGridbtymodule .customerRating .rating .prodReviewCount, .itemGridbty .customerRating .rating .prodReviewCount
+{
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 15px;
+	color: #666666;
+	vertical-align: bottom;
+}
+
+#buttonTd .saveTo a
+{
+	padding-left: 92px;
+	padding-top: 5px;
+}
+
+.PListItemUnavailable
+{
+	color: #ed2801;
+	font-family: Arial;
+	font-size: 13px;
+	margin-right: 20px;
+	width: 240px;
+	margin-top: 5px;
+}
+
+.PListDiscountPrice
+{
+	color: #ed2801;
+	font-family: Arial;
+	font-size: 13px;
+	width: 240px;
+	margin-top: 5px;
+}
+
+.PListRegularPrice
+{
+	color: #333;
+	font-size: 10px;
+	font-variant: normal;
+}
+
+.itemGridbtymodule .pricebrandstore, .itemGridbty .pricebrandstore
+{
+	width: 120px;
+	margin: 0 0 20px 20px;
+	overflow: hidden;
+	height: 15px;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 1em;
+	line-height: 15px;
+	color: #444444;
+}
+
+.prodReviewCount
+{
+	padding-left: 5px;
+	font-size: 10px;
+	font-family: Arial;
+	color: #444444;
+}
+
+#emptyDiv
+{
+	padding-bottom: 30px;
+}
+
+.itemGrid .prodUnavailable .prodImg
+{
+	width: 150px;
+	height: 150px;
+}
+
+.itemGrid .prodUnavailable .info
+{
+	height: 150px;
+	width: 140px;
+	overflow: hidden;
+	font-size: 12px;
+	padding: 14px 0 0 10px;
+}
+
+	.itemGrid .prodUnavailable .info .reason
+	{
+		color: #000000;
+		font-weight: normal;
+		font-size: 12px;
+		padding: 30px 0 0 0;
+	}
+
+.itemGrid .prodUnavailable .cart
+{
+	padding: 19px 0 0 10px;
+	height: 50px;
+	display: block;
+	margin: 10px 0 0 0;
+}
+
+#StdBrandCntr #tblPListBody .itemGrid
+{
+	width: 191px;
+	display: inline;
+	float: left;
+	padding: 0 0;
+	height: 390px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+}
+
+.itemGrid .pickColor
+{
+	margin: 0 8px 0 9px;
+	height: 15px;
+}
+
+	.itemGrid .pickColor .pickColorArrow
+	{
+		float: left;
+		padding-top: 5px;
+	}
+
+	.itemGrid .pickColor .PlistpcolorLink
+	{
+		font-family: Arial;
+		font-weight: normal;
+		font-size: 11px;
+		line-height: 15px;
+		color: #666666;
+		padding-left: 6px;
+		cursor: pointer;
+	}
+
+.itemGridSeperator
+{
+	float: left;
+	width: 580px;
+	border-top: 1px solid #cccccc;
+	height: 0;
+}
+
+.itemGrid .PListItemUnavailable
+{
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 15px;
+	color: #ED2801;
+	padding: 5px 8px 0 9px;
+}
+
+.itemGrid .PListBuyButton
+{
+	padding: 10px 8px 0 9px;
+}

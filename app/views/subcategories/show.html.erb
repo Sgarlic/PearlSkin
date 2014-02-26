@@ -8,11 +8,5 @@
 	</span>
 </div>
 
-<% @subcategories_items = Item.includes(:brand).where("subcategory_id=#{@subcategory.id}").order('brands.brand_english, item_english').paginate(page: params[:page]).per_page(10) %>
-<%= will_paginate @subcategories_items %>
-<ul class="users">
-	<% @subcategories_items.each do |item| %>
-		<%= render 'shared/single_item' , object: item %>
-	<% end %>
-</ul>
-<%= will_paginate @subcategories_items %>
+<% @subcategories_items = Item.includes(:brand).where("subcategory_id=#{@subcategory.id}").order('brands.brand_english, item_english').paginate(page: params[:page]).per_page(18) %>
+<%= render 'shared/item_gridview' , object: @subcategories_items %>

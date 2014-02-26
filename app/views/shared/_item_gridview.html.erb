@@ -1,0 +1,22 @@
+<%= will_paginate object %>
+<article id = "featuredProducts" class="grids">
+	<div id = "featured-products">
+		<div class="flex-box-3 item">
+			<% counter = 1 %>
+			<% object.each do |item| %>
+				<% if counter%3 == 1 %>
+					<% colmID="itemGridbty firstCol" %>
+				<% elsif counter%3 == 2 %>
+					<% colmID="itemGridbty centerCol" %>
+				<% else %>
+					<% colmID="itemGridbty lastCol" %>
+				<% end %>
+				<div class="<%= colmID %>" >
+					<%= render 'shared/single_item' , object:item %>
+				</div>
+				<% counter = counter+1 %>
+			<% end %>
+		</div>
+	</div>
+</article>
+<%= will_paginate object %>
