@@ -1,7 +1,8 @@
-<%= will_paginate @relationships%>
+
 	<ol class="microposts">
 		<% @relationships.each do |relationship| %>
 			<%= render 'shared/single_item' , object: Item.find(relationship.item_id) %>
   		<% end %>
 	</ol>
-<%= will_paginate @relationships%>
+
+<%= @relation_items.size %>

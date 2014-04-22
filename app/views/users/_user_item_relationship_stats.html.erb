@@ -1,26 +1,44 @@
 <section>
-	<%= link_to show_user_items_path(:linktype => "favourite", :user_id => @user.id) , :remote => true do%>
+	<%= link_to user_url(:linktype => "favourite", :id => @user.id) do%>
 		<h4>
 			<i class="icon-heart"></i>
+			<% if @currentLinkType == "favourite" %>
+			<font  color="#d44950">
+			<% end %>
 			喜欢(<%= @user.favourites.count %>)
+			<% if @currentLinkType == "favourite" %>
+			</font>
+			<% end %>
 		</h4>
 	<% end %>
 </section>
 	
 <section>
-	<%= link_to show_user_items_path(:linktype => "plan", :user_id => @user.id) , :remote => true do%>
+	<%= link_to user_url(:linktype => "plan", :id => @user.id) do%>
 		<h4>
+			<% if @currentLinkType == "plan" %>
+			<font  color="#d44950">
+			<% end %>
 			<i class="icon-time"></i>
 			计划(<%= @user.plans.count %>)
+			<% if @currentLinkType == "plan" %>
+			</font>
+			<% end %>
 		</h4>
 	<% end %>
 </section>
 
 <section>
-	<%= link_to show_user_items_path(:linktype => "used", :user_id => @user.id) , :remote => true do%>
+	<%= link_to user_url(:linktype => "used", :id => @user.id) do%>
 		<h4>
+			<% if @currentLinkType == "used" %>
+			<font  color="#d44950">
+			<% end %>
 			<i class="icon-check"></i>
 			用过(<%= @user.useds.count %>)
+			<% if @currentLinkType == "used" %>
+			</font>
+			<% end %>
 		</h4>
 	<% end %>
 </section>

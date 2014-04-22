@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+require 'will_paginate'
 class UsersController < ApplicationController
   before_action :signed_in_user, only: [:index, :edit, :update, :show, :show_favourite,
     :show_plan, :show_used]
@@ -6,6 +8,27 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    linktype = params[:linktype]
+    if linktype.nil?
+      linktype="favourite"
+    end
+
+    @currentLinkType = linktype
+
+    if linktype == "favourite"
+      @relationships = @user.favourites.order(created_at: :desc)
+    elsif linktype == "plan"
+      @relationships = @user.plans.order(created_at: :desc)
+    else
+      @relationships = @user.useds.order(created_at: :desc)
+    end
+    
+    @relation_items = Array.new(0)
+    @relationships.each do |relationship|
+      @relation_items << Item.find(relationship.item_id)
+    end
+
+    @relation_items = @relation_items.paginate(page: params[:page], :per_page => 15)
   end
 
   def index
@@ -46,26 +69,6 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "删除用户成功"
     redirect_to users_url
-  end
-
-  def show_user_items
-    linktype = params[:linktype]
-    @user = User.find(params[:user_id])
-    if linktype == "favourite"
-      @relationships = @user.favourites.order(created_at: :desc)
-      @items = Item.find(@relationships)
-    elsif linktype == "plan"
-      @relationships = @user.plans.order(created_at: :desc)
-      @items = Item.find(@relationships)
-    else
-      @relationships = @user.useds.order(created_at: :desc)
-      @items = Item.find(@relationships)
-    end
-
-    respond_to do |format|
-      # format.html { redirect_to item_path(@item_id) }
-      format.js
-    end
   end
 
   private

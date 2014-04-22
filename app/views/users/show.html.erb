@@ -12,6 +12,9 @@
     </section>
   </aside>
 
-  <div class = "span8" id="show_user_items">
+  <div class = "span9">
+    <%= will_paginate @relation_items %>
+      <%= render 'shared/item_gridview' , object: @relation_items %>
+    <%= will_paginate @relation_items %>
   </div>
 </div>
