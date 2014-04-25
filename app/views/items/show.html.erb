@@ -62,11 +62,11 @@
 		<section>
 			<% if @item.item_addrs.any? %>
 				<span class="item_brand">物品链接 (<%= @item.item_addrs.count %>)</span>
-				<%= will_paginate @item_addrs %>
+				<%= will_paginate @item_addrs, :previous_label => "上一页", :next_label => "下一页" %>
       			<ol class="microposts">
         			<%= render @item_addrs %>
      			</ol>
-      			<%= will_paginate @item_addrs %>
+      			<%= will_paginate @item_addrs, :previous_label => "上一页", :next_label => "下一页" %>
     		<% end %>
 		</section>
 		<% if current_user.admin? %>
@@ -81,11 +81,11 @@
 		<section>
 			<% if @item.comments.any? %>
 				<h3>评价(<%= @item.comments.count %>)</h3>
-				<%= will_paginate @comments %>
+				<%= will_paginate @comments, :previous_label => "上一页", :next_label => "下一页" %>
 	      		<ol class="microposts">
 	        		<%= render @comments %>
 	     		</ol>
-	      		<%= will_paginate @comments %>
+	      		<%= will_paginate @comments, :previous_label => "上一页", :next_label => "下一页" %>
 	    	<% end %>
 	    </section>
 	    <br>

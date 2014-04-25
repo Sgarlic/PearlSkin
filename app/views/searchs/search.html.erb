@@ -1,0 +1,42 @@
+<% provide(:title, '搜索') %>
+<div class="row">
+<div class="span3"></div>
+<div class="span8">
+  <% if !@final_result.nil? %>
+    <ul class="search-result">
+      <li class="items-post">
+      	<h2>搜索 <strong><%=@query_content%></strong> 的结果如下： </h2>
+      </li>
+      
+	    <% @final_result.each do |result| %>
+	      <% result_item = result[:result] %>
+	      <li class="items-post">
+		  	<% case result[:tag] %>
+		    <% when 0 %>
+		      <h2>[品牌] <%= link_to result_item.brand_name, brand_path(result_item.id) %></h2>    
+		    <% when 1 %>
+		      <h2>[物品] <%= link_to result_item.item_name, item_path(result_item.id) %></h2> 
+		      <% item_brand = Brand.find_by(id:result_item.brand_id) %>
+		      <p>
+		      	品牌：<%= link_to item_brand.brand_name, brand_path(item_brand.id) %>
+		      </p>  
+		    <% when 2 %>
+		      <% comment_item = Item.find_by(id:result_item.item_id)%>
+		      <% comment_brand =  Brand.find_by(id:comment_item.brand_id) %>
+		      <h2>[评论] <%= link_to comment_item.item_name, item_path(comment_item.id) %></h2>
+		      <p>
+		      	<%= result_item.content %>
+		      </p>
+		      <p>
+		      	品牌：<%= link_to comment_brand.brand_name, brand_path(comment_brand.id) %>
+		      </p>
+		    <% end %>
+	      </li>
+	    <% end %>
+	</ul>
+	<div class="search_paginate">
+	  <%= will_paginate @final_result, :previous_label => "上一页", :next_label => "下一页"%>
+	</div>
+  <% end %>
+</div>
+</div>

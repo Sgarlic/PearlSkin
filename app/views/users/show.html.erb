@@ -13,8 +13,8 @@
   </aside>
 
   <div class = "span9">
-    <%= will_paginate @relation_items %>
+    <%= will_paginate @relation_items, :previous_label => "上一页", :next_label => "下一页" %>
       <%= render 'shared/item_gridview' , object: @relation_items %>
-    <%= will_paginate @relation_items %>
+    <%= will_paginate @relation_items, :previous_label => "上一页", :next_label => "下一页" %>
   </div>
 </div>

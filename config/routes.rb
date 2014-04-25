@@ -1,4 +1,5 @@
 PearlSkin::Application.routes.draw do
+  get "searchs/search"
   get "users/new"
   resources :countries
   resources :brands
@@ -30,6 +31,7 @@ PearlSkin::Application.routes.draw do
   match 'show_image', to: 'items#show_image', via:'get'
   match 'show_user_items', to: 'users#show_user_items', via:'get'
   match 'show_subcategory_brand_items', to: 'subcategories#show_subcategory_brand_items', via:'get'
+  match 'search', to: 'searchs#search', via:'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

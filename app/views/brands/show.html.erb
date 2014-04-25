@@ -11,11 +11,11 @@
 		<section>
 			<% if @brand.brand_addrs.any? %>
 				<span class="item_brand">品牌链接 (<%= @brand.brand_addrs.count %>)</span>
-				<%= will_paginate @brand_addrs %>
+				<%= will_paginate @brand_addrs, :previous_label => "上一页", :next_label => "下一页" %>
       			<ol class="microposts">
         			<%= render @brand_addrs %>
      			</ol>
-      			<%= will_paginate @brand_addrs %>
+      			<%= will_paginate @brand_addrs, :previous_label => "上一页", :next_label => "下一页" %>
     		<% end %>
 		</section>
 		<% if current_user.admin? %>
@@ -27,9 +27,9 @@
 
 	<div class="span9">
 		<% @brand_items = Item.where("brand_id=#{@brand.id}").order('item_english').paginate(page: params[:page]).per_page(15) %>
-		<%= will_paginate @brand_items %>
+		<%= will_paginate @brand_items, :previous_label => "上一页", :next_label => "下一页" %>
 		<%= render 'shared/item_gridview' , object: @brand_items %>
-		<%= will_paginate @brand_items %>
+		<%= will_paginate @brand_items, :previous_label => "上一页", :next_label => "下一页" %>
 	</div>
 
 </div>

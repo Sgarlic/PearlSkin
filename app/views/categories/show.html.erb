@@ -11,10 +11,10 @@
 	</aside>
 
 	<div class="span8">
-		<%= will_paginate @subcatetories%>
+		<%= will_paginate @subcatetories, :previous_label => "上一页", :next_label => "下一页"%>
 		<ol class="microposts">
 	  		<%= render @subcatetories %>
 		</ol>
-		<%= will_paginate @subcatetories%>
+		<%= will_paginate @subcatetories, :previous_label => "上一页", :next_label => "下一页"%>
 	</div>
 </div>
