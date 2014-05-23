@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class SearchsController < ApplicationController
   def search
   	@query_content = params[:query_content]
