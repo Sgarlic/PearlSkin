@@ -20,12 +20,12 @@
                 </li>
               <% end %>
           </ul>
-          <ul class="nav pull-left">
+          <div class="searchDiv">
             <form action="/searchs/search">
               <input type="text" maxlength="30" value="" name="query_content">
             </form>
-          </ul>
-          <ul class="nav pull-right">
+          </div>
+          <div class="nav pull-right">
             <% if current_user.admin? %>
               <li><%= link_to "添加物品", new_item_path %></li>
               <li id="fat-menu" class="dropdown">
