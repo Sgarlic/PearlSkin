@@ -4,14 +4,14 @@ class ItemsController <ApplicationController
 	def new
 		@item = Item.new
 		@brands = Brand.find_brands
-		@subcategories = Subcategory.find(:all)
+		@subcategories = Subcategory.all
 
 	end
 
 	def edit
 		@item = Item.find(params[:id])
 		@brands = Brand.find_brands
-		@subcategories = Subcategory.find(:all)
+		@subcategories = Subcategory.all
 	end
 
 	def show_image

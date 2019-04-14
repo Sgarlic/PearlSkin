@@ -6,7 +6,7 @@
         <nav>
           <ul class="nav pull-left">
             <li><%= link_to "品牌", all_brands_path %></li>
-              <% Category.find(:all).each do |category| %>
+              <% Category.all.each do |category| %>
                 <li id="fat-menu" class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <%= category.name %><b class="caret"></b>

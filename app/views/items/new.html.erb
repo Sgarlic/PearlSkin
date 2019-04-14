@@ -97,10 +97,10 @@
       <label for="item_brand_id">品牌:</label>
     	<%= f.select :brand_id, @brands, :prompt => "品牌" %>
     	<label for="item_category_id">类别:</label>
-    	<%= f.collection_select :category_id, Category.find(:all), :id, :name, :prompt => "类别" %>
+    	<%= f.collection_select :category_id, Category.all, :id, :name, :prompt => "类别" %>
     	<p id="subcategory_field">
     		<label for="item_subcategory_id">子类别:</label>
-    		<%= f.collection_select :subcategory_id, Subcategory.find(:all), :id, :name, :promot => "子类别" %>
+    		<%= f.collection_select :subcategory_id, Subcategory.all, :id, :name, :promot => "子类别" %>
     	</p>
       <label>物品英文名：</label>
       <%= f.text_area :item_english, placeholder: "物品英文名..." %>

@@ -13,6 +13,6 @@ class Brand < ActiveRecord::Base
 	end
 
 	def self.find_brands
-		Brand.find(:all, :order => "brand_english").collect{|brand| [brand.brand_name, brand.id]}
+		Brand.all.order('brand_english').collect{|brand| [brand.brand_name, brand.id]}
 	end
 end

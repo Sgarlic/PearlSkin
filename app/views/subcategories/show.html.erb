@@ -8,11 +8,11 @@
 			</span>
 		</section>
 		<section>
-			<% @item_brands = Item.includes(:brand).where("subcategory_id=#{@subcategory.id}").order('brands.brand_english').count(:group=>"brand_id") %>
+			<% @item_brands = Item.includes(:brand).where("subcategory_id=#{@subcategory.id}").order('brands.brand_english').group(:brand_id, :brand_english).count %>
 			<% @item_brands.each do |item_brand| %>
-				<%= link_to show_subcategory_brand_items_path(:brand_id => item_brand[0], :subcategory_id => @subcategory.id) , :remote => true do%>
+				<%= link_to show_subcategory_brand_items_path(:brand_id => item_brand[0][0], :subcategory_id => @subcategory.id) , :remote => true do%>
 					<h4>
-						<%= Brand.find(item_brand[0]).brand_name %>(<%= item_brand[1] %>)
+						<%= Brand.find(item_brand[0][0]).brand_name %>(<%= item_brand[1] %>)
 						<br>
 					</h4>
 				<% end %>

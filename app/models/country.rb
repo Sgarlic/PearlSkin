@@ -8,6 +8,6 @@ class Country < ActiveRecord::Base
 								uniqueness: true
 
 	def self.find_countries
-		Country.find(:all, :order => "country_name").collect{|country| [country.country_name, country.id]}
+		Country.all.order("country_name").collect{|country| [country.country_name, country.id]}
 	end
 end
