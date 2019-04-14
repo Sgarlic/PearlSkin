@@ -1,0 +1,8 @@
+{
+  "name": "Pearl Skin",
+  "description": "Pearl Skin",
+  "image": "heroku/ruby",
+  "repository": "https://github.com/Sgarlic/PearlSkin",
+  "keywords": ["Pearl", "Skin" ],
+  "addons": ["heroku-postgresql"]
+}
